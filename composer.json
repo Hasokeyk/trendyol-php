@@ -1,0 +1,30 @@
+{
+  "name": "hasokeyk/trendyol",
+  "description": "Basit Trendyol PHP API",
+  "type": "library",
+  "keywords": [
+    "trendyol",
+    "eticaret",
+    "php api",
+    "trendyol php api",
+    "pazaryeri"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Hasan Yüksektepe",
+      "email": "hasanhasokeyk@hotmail.com"
+    }
+  ],
+  "require": {
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Hasokeyk\\Trendyol\\": "src/trendyol",
+      "Hasokeyk\\Trendyol\\TrendyolMarketplace": "src/trendyol/marketplace"
+    }
+  },
+  "minimum-stability": "stable"
+}
