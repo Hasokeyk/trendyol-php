@@ -20,17 +20,9 @@
             return new TrendyolRequest($this->supplierId, $this->username, $this->password);
         }
 
-        public function get_brands($filter = []){
+        public function get_brands(){
             $url = 'https://api.trendyol.com/sapigw/brands';
-
-            $required_query_data = [
-                'page' => 0,
-                'size' => null,
-            ];
-            $required_query_data = array_merge($required_query_data, $filter);
-            $new_url             = http_build_query($required_query_data);
-
-            $result = $this->request()->get($url.'?'.$new_url);
+            $result = $this->request()->get($url);
             return $result;
         }
 
