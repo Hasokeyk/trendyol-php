@@ -77,6 +77,10 @@
                         'salePrice'          => $data['salePrice'] ?? null,
                         'cargoCompanyId'     => $data['cargoCompanyId'] ?? null,
                         'deliveryDuration'   => $data['deliveryDuration'] ?? null,
+                        'deliveryOption'   => [
+                            'deliveryDuration' => $data['deliveryDuration'],
+//                            'fastDeliveryType' => 'SAME_DAY_SHIPPING'
+                        ],
                         'images'             => $data['images'] ?? null,
                         'vatRate'            => $data['vatRate'] ?? '18',
                         'shipmentAddressId'  => $data['shipmentAddressId'] ?? null,
@@ -86,7 +90,7 @@
                 ],
             ];
 
-            $product_result = $this->request()->put($url, $post_data);
+            $product_result = $this->request()->post($url, $post_data);
             if(isset($product_result->batchRequestId)){
                 $result = $this->get_batch_request_result($product_result->batchRequestId);
             }
