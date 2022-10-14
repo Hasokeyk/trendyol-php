@@ -20,6 +20,10 @@
             return new TrendyolRequest($this->supplierId, $this->username, $this->password);
         }
 
+        public function product(){
+            return new TrendyolMarketplaceProducts($this->supplierId, $this->username, $this->password);
+        }
+
         public function get_my_products($filter = []){
             $url = 'https://api.trendyol.com/sapigw/suppliers/'.$this->supplierId.'/products';
 
@@ -77,9 +81,9 @@
                         'salePrice'          => $data['salePrice'] ?? null,
                         'cargoCompanyId'     => $data['cargoCompanyId'] ?? null,
                         'deliveryDuration'   => $data['deliveryDuration'] ?? null,
-                        'deliveryOption'   => [
+                        'deliveryOption'     => [
                             'deliveryDuration' => $data['deliveryDuration'],
-//                            'fastDeliveryType' => 'SAME_DAY_SHIPPING'
+                            //                            'fastDeliveryType' => 'SAME_DAY_SHIPPING'
                         ],
                         'images'             => $data['images'] ?? null,
                         'vatRate'            => $data['vatRate'] ?? '18',
@@ -206,7 +210,7 @@
             return false;
         }
 
-        public function update_product_description($barcode = null, $new_desc= null){
+        public function update_product_description($barcode = null, $new_desc = null){
 
             if($barcode != null and $new_desc != null){
 
@@ -279,6 +283,28 @@
 
                 }
 
+            }
+
+            return false;
+        }
+
+        public function get_product_comment($barcode = null){
+
+            if($barcode != null){
+
+                $product_info = $this->product()->get_my_product($barcode);
+
+                if(isset($product_info->content[0])){
+                    $product_content_id = $product_info->content[0]->productContentId;
+                    $url                = 'https://public-mdc.trendyol.com/discovery-web-socialgw-service/reviews/herkesaliyo/urun-p-'.$product_content_id.'/yorumlar?boutiqueId=61&merchantId='.$this->supplierId.'&culture=tr-TR&storefrontId=1&logged-in=true&isBuyer=false';
+                    $body               = $this->request()->get($url);
+
+                    if(isset($body->result) and $body->result != null){
+                        preg_match('|window.__REVIEW_APP_INITIAL_STATE__\s=\s(.*?);|is', $body->result->hydrateScript, $json);
+                        return json_decode($json[1]);
+                    }
+
+                }
             }
 
             return false;
