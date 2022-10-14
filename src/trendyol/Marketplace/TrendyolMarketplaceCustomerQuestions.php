@@ -20,6 +20,10 @@
             return new TrendyolRequest($this->supplierId, $this->username, $this->password);
         }
 
+        public function product(){
+            return new TrendyolMarketplaceProducts($this->supplierId, $this->username, $this->password);
+        }
+
         public function get_my_customer_questions($filter){
             $url                 = 'https://api.trendyol.com/sapigw/suppliers/'.$this->supplierId.'/questions/filter';
             $required_query_data = [
@@ -50,6 +54,20 @@
 
             $result = $this->request()->post($url, $post_data);
             return $result;
+        }
+
+        public function get_product_question_web($barcode = null){
+
+            $product_info = $this->product()->get_my_product($barcode);
+
+            if(isset($product_info->content[0])){
+                $product_content_id = $product_info->content[0]->productContentId;
+                $url = 'https://public-mdc.trendyol.com/discovery-web-socialgw-service/api/questions/answered/filter?page=0&storefrontId=1&culture=tr-TR&sellerId='.$this->supplierId.'&contentId='.$product_content_id;
+                $body = $this->request()->get($url);
+                return $body;
+            }
+
+            return false;
         }
 
     }
