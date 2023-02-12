@@ -28,7 +28,6 @@
             $url = 'https://api.trendyol.com/sapigw/suppliers/'.$this->supplierId.'/products';
 
             $required_query_data = [
-                'approved'      => 'true',
                 'barcode'       => null,
                 'startDate'     => null,
                 'endDate'       => null,
@@ -36,12 +35,9 @@
                 'dateQueryType' => 'CREATED_DATE',
                 'size'          => null,
                 'supplierId'    => $this->supplierId,
-                'stockCode'     => null,
-                'archived'      => null,
-                'productMainId' => null,
             ];
             $required_query_data = array_merge($required_query_data, $filter);
-            $new_url             = http_build_query($required_query_data);
+            $new_url = http_build_query($required_query_data);
 
             $result = $this->request()->get($url.'?'.$new_url);
             return $result;
@@ -51,11 +47,29 @@
 
             if($barcode != null){
 
-                $products = $this->get_my_products([
+                $barcode_product = $this->get_my_products([
                     'barcode' => $barcode,
                 ]);
 
-                return $products;
+                if(isset($barcode_product->totalElements) and $barcode_product->totalElements > 0){
+                    return $barcode_product;
+                }
+
+                $product_main_id_products = $this->get_my_products([
+                    'productMainId' => $barcode,
+                ]);
+
+                if(isset($product_main_id_products->totalElements) and $product_main_id_products->totalElements > 0){
+                    return $product_main_id_products;
+                }
+
+                $stock_code_products = $this->get_my_products([
+                    'stockCode' => $barcode,
+                ]);
+
+                if(isset($stock_code_products->totalElements) and $stock_code_products->totalElements > 0){
+                    return $stock_code_products;
+                }
             }
 
             return false;
@@ -69,21 +83,20 @@
                     [
                         'barcode'            => $data['barcode'] ?? null,
                         'title'              => $data['title'] ?? null,
-                        'productMainId'      => $data['barcode'] ?? null,
+                        'productMainId'      => $data['productMainId'] ?? null,
                         'brandId'            => $data['brandId'] ?? null,
                         'categoryId'         => $data['categoryId'] ?? null,
                         'quantity'           => $data['quantity'] ?? null,
-                        'stockCode'          => $data['barcode'] ?? null,
+                        'stockCode'          => $data['stockCode'] ?? null,
                         'dimensionalWeight'  => $data['dimensionalWeight'] ?? null,
                         'description'        => $data['description'] ?? '',
                         'currencyType'       => $data['currencyType'] ?? 'TRY',
                         'listPrice'          => $data['listPrice'] ?? null,
                         'salePrice'          => $data['salePrice'] ?? null,
                         'cargoCompanyId'     => $data['cargoCompanyId'] ?? null,
-                        'deliveryDuration'   => $data['deliveryDuration'] ?? null,
                         'deliveryOption'     => [
-                            'deliveryDuration' => $data['deliveryDuration'],
-                            //                            'fastDeliveryType' => 'SAME_DAY_SHIPPING'
+                            'deliveryDuration' => $data['deliveryDuration'] ?? null,
+                            'fastDeliveryType' => $data['fastDeliveryType'] ?? null,
                         ],
                         'images'             => $data['images'] ?? null,
                         'vatRate'            => $data['vatRate'] ?? '18',
