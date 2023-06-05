@@ -121,7 +121,7 @@
         }
 
         protected function userAgent(){
-            return $this->supplierId.' - SelfIntegration';
+            return $this->supplierId.' - TrendyolSoft';
         }
 
         protected function authorization(){

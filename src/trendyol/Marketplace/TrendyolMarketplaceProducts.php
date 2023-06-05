@@ -36,11 +36,12 @@
                 'size'          => null,
                 'supplierId'    => $this->supplierId,
             ];
-            $required_query_data = array_merge($required_query_data, $filter);
-            $new_url = http_build_query($required_query_data);
+            if(is_array($filter) and !is_null($filter)){
+                $required_query_data = array_merge($required_query_data, $filter);
+            }
+            $new_url             = http_build_query($required_query_data);
 
-            $result = $this->request()->get($url.'?'.$new_url);
-            return $result;
+            return $this->request()->get($url.'?'.$new_url);
         }
 
         public function get_my_product($barcode = null){
@@ -126,11 +127,11 @@
                     [
                         'barcode'           => $barcode,
                         'title'             => $data['title'] ?? null,
-                        'productMainId'     => $barcode,
+                        'productMainId'     => $data['productMainId'] ?? null,
                         'brandId'           => $data['brandId'] ?? null,
                         'categoryId'        => $data['categoryId'] ?? null,
                         'quantity'          => $data['quantity'] ?? null,
-                        'stockCode'         => $barcode,
+                        'stockCode'         => $data['stockCode'] ?? null,
                         'dimensionalWeight' => $data['dimensionalWeight'] ?? null,
                         'description'       => $data['description'] ?? '',
                         'currencyType'      => $data['currencyType'] ?? 'TRY',
