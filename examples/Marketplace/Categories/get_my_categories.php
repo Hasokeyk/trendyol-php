@@ -1,7 +1,5 @@
 <?php
 
-    //Source : https://developers.trendyol.com/docs/marketplace/urun-entegrasyonu/trendyol-kategori-listesi
-
     use Hasokeyk\Trendyol\Trendyol;
 
     require "vendor/autoload.php";
@@ -14,5 +12,5 @@
 
     $trendyol_marketplace_categories = $trendyol->marketplace->TrendyolMarketplaceCategories();
 
-    $categories = $trendyol_marketplace_categories->get_categories();
+    $categories = $trendyol_marketplace_categories->get_my_categories();
     print_r($categories);

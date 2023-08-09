@@ -26,12 +26,13 @@
             return $result;
         }
 
-        public function get_marketplace_categories(){
+        public function get_my_categories(){
             $url    = 'https://www.trendyol.com/sr?mid='.$this->supplierId;
             $result = file_get_contents($url);
             preg_match_all('/{"id":"\d+","text":"([^"]+)","beautifiedName":"[^"]+","count":([^"]+),"filtered":false,"filterField":"(webCategoryIds|leafCategoryIds)","type":"(WebCategory|LeafCategory)","url":"[^"]+"}/', $result, $matches);
 
             $supplider_cats = [];
+            $total_product  = 0;
             foreach($matches[1] as $id => $match){
 
                 $category_info_json = json_decode(file_get_contents((__DIR__).'/../assets/category_info.json'), true);
@@ -42,7 +43,11 @@
                     'cat_name' => trim($match),
                     'count'    => $matches[2][$id]
                 ];
+
+                $total_product += $matches[2][$id] ?? 0;
             }
+
+            $supplider_cats['total_product_count'] = $total_product;
 
             return $supplider_cats;
         }
@@ -62,7 +67,7 @@
             if(isset($data) and $data != null){
                 foreach($data as $category){
 
-                    if(isset($category[$key]) and ($category[$key] == $value or $this->calculateSimilarityScore($category[$key], $value) > 85)){
+                    if(isset($category[$key]) and ($category[$key] == $value or $this->calculateSimilarityScore($category[$key], $value) > 80)){
                         $this->trendyol_array_search_result = $category;
                     }
 
@@ -71,8 +76,7 @@
                     }
 
                 }
-            }
-            else{
+            }else{
                 return 2;
             }
             return $this->trendyol_array_search_result;
@@ -80,8 +84,8 @@
 
         private function calculateSimilarityScore($string1, $string2){
 
-            $string1 = str_replace(['\u0026','&'], ['&',' ve '], htmlspecialchars_decode($string1));
-            $string2 = str_replace(['\u0026','&'], ['&',' ve '], htmlspecialchars_decode($string2));
+            $string1 = str_replace(['\u0026', '&'], ['&', ' ve '], htmlspecialchars_decode($string1));
+            $string2 = str_replace(['\u0026', '&'], ['&', ' ve '], htmlspecialchars_decode($string2));
 
             $levenshteinDistance = levenshtein($string1, $string2);
             $maxLength           = max(strlen($string1), strlen($string2));

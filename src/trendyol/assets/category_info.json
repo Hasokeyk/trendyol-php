@@ -18792,7 +18792,7 @@
                     },
                     {
                       "Id": 2674,
-                      "Name": "Bellek (RAM)",
+                      "Name": "Ram",
                       "ParentId": 5335,
                       "Nodes": null,
                       "Commission": 8.5,

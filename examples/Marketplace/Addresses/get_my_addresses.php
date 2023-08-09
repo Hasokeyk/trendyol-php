@@ -1,6 +1,6 @@
 <?php
 
-    //Source : https://developers.trendyol.com/tr/marketplace-entegrasyonu/urun-entegrasyonu/v2/iade-sevkiyat-adresleri
+    //Source : https://developers.trendyol.com/docs/marketplace/urun-entegrasyonu/trendyol-marka-listesi
 
     use Hasokeyk\Trendyol\Trendyol;
 

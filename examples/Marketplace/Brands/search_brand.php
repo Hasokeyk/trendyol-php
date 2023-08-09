@@ -7,12 +7,12 @@
     require "vendor/autoload.php";
 
     $supplierId = 'XXXXXX';
-    $username   = 'XXXXXXXXXXXXXXXXXXXX';
-    $password   = 'XXXXXXXXXXXXXXXXXXXX';
+    $username = 'XXXXXXXXXXXXXXXXXXXX';
+    $password = 'XXXXXXXXXXXXXXXXXXXX';
 
     $trendyol = new Trendyol($supplierId, $username, $password);
 
     $trendyol_marketplace_brands = $trendyol->marketplace->TrendyolMarketplaceBrands();
 
-    $brands = $trendyol_marketplace_brands->get_brands();
+    $brands = $trendyol_marketplace_brands->search_brand('Herkesalıyo');
     print_r($brands);
