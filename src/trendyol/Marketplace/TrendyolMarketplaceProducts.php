@@ -296,7 +296,7 @@
 
 				if(isset($product_info->content[0])){
 					$product_content_id = $product_info->content[0]->productContentId;
-                    $url                = 'https://public-mdc.trendyol.com/discovery-web-socialgw-service/api/review/'.$product_content_id.'?merchantId='.$this->supplierId.'&storefrontId=1&culture=tr-TR&order=5&searchValue=&onlySellerReviews=true&ratingValues[]=5&page=0';
+                    $url                = 'https://public-mdc.trendyol.com/discovery-web-socialgw-service/api/review/'.$product_content_id.'?merchantId='.$this->supplierId.'&storefrontId=1&culture=tr-TR&order=5&searchValue=&onlySellerReviews=false&ratingValues[]=5&page=0';
 					$body               = $this->request()->get($url);
 
 					if(isset($body->result) and $body->result != null){
