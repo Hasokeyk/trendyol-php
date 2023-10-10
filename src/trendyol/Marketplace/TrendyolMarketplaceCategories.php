@@ -69,6 +69,7 @@
             $product        = $this->product()->get_my_product($barcode);
             $product_cat_id = $product->content[0]->pimCategoryId;
             $all_cat        = $this->get_categories();
+            //            print_r($all_cat);
             return $this->find_parent_categories($all_cat->categories, $product_cat_id);
         }
         
@@ -122,12 +123,15 @@
         function find_parent_categories($categories, $category_id){
             foreach($categories as $category){
                 if($category->id == $category_id){
-                    $breadcrumb = [$category->name];
-                    $parentId   = $category->parentId;
+                    $breadcrumb[] = [
+                        'id'   => $category->id,
+                        'name' => $category->name
+                    ];
+                    $parentId     = $category->parentId;
                     while($parentId > 0){
                         $parentCategory = $this->find_category_by_id($categories, $parentId);
                         if($parentCategory){
-                            array_unshift($breadcrumb, $parentCategory->name);
+                            array_unshift($breadcrumb, ['id' => $parentCategory->id, 'name' => $parentCategory->name]);
                             $parentId = $parentCategory->parentId;
                         }
                         else{
@@ -139,7 +143,7 @@
                 if(!empty($category->subCategories)){
                     $breadcrumb = $this->find_parent_categories($category->subCategories, $category_id);
                     if(!empty($breadcrumb)){
-                        array_unshift($breadcrumb, $category->name);
+                        array_unshift($breadcrumb, ['id' => $category->id, 'name' => $category->name]);
                         return $breadcrumb;
                     }
                 }
