@@ -73,6 +73,30 @@
             return $this->find_parent_categories($all_cat->categories, $product_cat_id);
         }
         
+        public function search_category_attr_values($cat_id = null, $attr_id = null, $search_text = null){
+            $all_values        = null;
+            $get_category_info = $this->get_category_info($cat_id);
+            foreach($get_category_info->categoryAttributes as $a_id => $attr){
+                if($attr->attribute->id == $attr_id){
+                    $attr_values   = $get_category_info->categoryAttributes[$a_id]->attributeValues;
+                    $search_result = $this->like($attr_values, $search_text);
+                    if($search_result != null){
+                        $all_values[] = $search_result;
+                    }
+                    break;
+                }
+            }
+            
+            return $all_values;
+        }
+        
+        function like(array $arr, string $patron): array{
+            $patron = strstr('%', $patron) ? $patron : $patron.'%';
+            return array_filter($arr, static function($value) use ($patron): bool{
+                return 1 === preg_match(sprintf('/^%s$/i', preg_replace('/(^%)|(%$)/', '.*', $patron)), $value->name);
+            });
+        }
+        
         public $trendyol_array_search_result = null;
         
         public function trendyol_array_search($data = [], $key = null, $value = null){

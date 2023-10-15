@@ -2,7 +2,7 @@
 
     namespace Hasokeyk\Trendyol;
 
-    use Hasokeyk\Trendyol\Marketplace\TrendyolMarketplace;
+    use Hasokeyk\trendyol\Marketplace\TrendyolMarketplace;
 
     class Trendyol{
 
