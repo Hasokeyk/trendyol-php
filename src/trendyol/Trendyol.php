@@ -2,7 +2,7 @@
 
     namespace Hasokeyk\Trendyol;
 
-    use Hasokeyk\trendyol\Marketplace\TrendyolMarketplace;
+    use Hasokeyk\Trendyol\Marketplace\TrendyolMarketplace;
 
     class Trendyol{
 
@@ -10,8 +10,8 @@
         public $username;
         public $password;
 
-        public $marketplace;
-        public $request;
+        public TrendyolMarketplace $marketplace;
+        public TrendyolRequest     $request;
 
         function __construct($supplierId = null, $username = null, $password = null){
 

@@ -3,7 +3,7 @@
         'name' => 'hasokeyk/trendyol',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '4620a1406b4309cc38110d217efd2bb042884218',
+        'reference' => '5bf5aaefc50be1155662a6bbc911e8c6e8522572',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'hasokeyk/trendyol' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '4620a1406b4309cc38110d217efd2bb042884218',
+            'reference' => '5bf5aaefc50be1155662a6bbc911e8c6e8522572',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
