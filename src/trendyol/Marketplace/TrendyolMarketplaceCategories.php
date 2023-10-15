@@ -83,13 +83,13 @@
             return $this->find_parent_categories($all_cat->categories, $product_cat_id);
         }
         
-        public function search_category_attr_values($category_id = null, $attr_id = null, $search_text = null){
+        public function search_category_attr_values($category_id = null, $attr_id = null, $search_text = null, $key = 'name'){
             $all_values        = null;
             $get_category_info = $this->get_category_info($category_id);
             foreach($get_category_info->categoryAttributes as $a_id => $attr){
                 if($attr->attribute->id == $attr_id){
                     $attr_values   = $get_category_info->categoryAttributes[$a_id]->attributeValues;
-                    $search_result = $this->array_search_cat_in_attr_value($attr_values, $search_text);
+                    $search_result = $this->array_search_cat_in_attr_value($attr_values, $search_text, $key);
                     if($search_result != null){
                         $all_values = $search_result;
                     }
@@ -100,10 +100,10 @@
             return $all_values;
         }
         
-        private function array_search_cat_in_attr_value(array $arr, string $patron): array{
+        private function array_search_cat_in_attr_value(array $arr, string $patron, $key = 'name'): array{
             $patron = strstr('%', $patron) ? $patron : $patron.'%';
-            return array_filter($arr, static function($value) use ($patron): bool{
-                return 1 === preg_match(sprintf('/^%s$/i', preg_replace('/(^%)|(%$)/', '.*', $patron)), $value->name);
+            return array_filter($arr, static function($value) use ($patron, $key): bool{
+                return 1 === preg_match(sprintf('/^%s$/i', preg_replace('/(^%)|(%$)/', '.*', $patron)), $value->{$key});
             });
         }
         
