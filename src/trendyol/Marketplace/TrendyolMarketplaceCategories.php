@@ -25,43 +25,62 @@
         }
         
         public function get_categories(){
-            $url    = 'https://api.trendyol.com/sapigw/product-categories';
-            $result = $this->request()->get($url);
+            $cache = $this->request()->cache('get_categories');
+            if($cache === false){
+                $url    = 'https://api.trendyol.com/sapigw/product-categories';
+                $result = $this->request()->get($url);
+                $this->request()->cache('get_categories', $result);
+            }
+            else{
+                $result = $cache;
+            }
             return $result;
         }
         
         public function get_my_categories(){
-            $url    = 'https://www.trendyol.com/sr?mid='.$this->supplierId;
-            $result = file_get_contents($url);
-            preg_match_all('/{"id":"\d+","text":"([^"]+)","beautifiedName":"[^"]+","count":([^"]+),"filtered":false,"filterField":"(webCategoryIds|leafCategoryIds)","type":"(WebCategory|LeafCategory)","url":"[^"]+"}/', $result, $matches);
             
-            $supplider_cats = [];
-            $total_product  = 0;
-            foreach($matches[1] as $id => $match){
+            $cache = $this->request()->cache('get_my_categories');
+            if($cache === false){
+                $url    = 'https://www.trendyol.com/sr?mid='.$this->supplierId;
+                $result = file_get_contents($url);
+                preg_match_all('/{"id":"\d+","text":"([^"]+)","beautifiedName":"[^"]+","count":([^"]+),"filtered":false,"filterField":"(webCategoryIds|leafCategoryIds)","type":"(WebCategory|LeafCategory)","url":"[^"]+"}/', $result, $matches);
                 
-                $category_info_json = json_decode(file_get_contents((__DIR__).'/../assets/category_info.json'), true);
-                $keys               = $this->trendyol_array_search($category_info_json['Categories'], 'Name', trim($match));
+                $supplider_cats = (object)[];
+                $total_product  = 0;
+                foreach($matches[1] as $id => $match){
+                    
+                    $category_info_json = json_decode(file_get_contents((__DIR__).'/../assets/category_info.json'), true);
+                    $keys               = $this->trendyol_array_search($category_info_json['Categories'], 'Name', trim($match));
+                    
+                    $supplider_cats->$id = (object)[
+                        'cat_id'   => trim($keys['Id']),
+                        'cat_name' => trim($match),
+                        'count'    => $matches[2][$id]
+                    ];
+                    
+                    $total_product += $matches[2][$id] ?? 0;
+                }
                 
-                $supplider_cats[] = [
-                    'cat_id'   => trim($keys['Id']),
-                    'cat_name' => trim($match),
-                    'count'    => $matches[2][$id]
-                ];
-                
-                $total_product += $matches[2][$id] ?? 0;
+                $supplider_cats->total_product_count = $total_product;
+                $this->request()->cache('get_my_categories', $supplider_cats);
             }
-            
-            $supplider_cats['total_product_count'] = $total_product;
+            else{
+                $supplider_cats = $cache;
+            }
             
             return $supplider_cats;
         }
         
         public function get_category_info($category_id = null, $parent_id = null){
-            $category_info_json = json_decode(file_get_contents((__DIR__).'/../assets/category_info.json'), true);
-            $keys               = $this->trendyol_array_search($category_info_json['Categories'], 'Id', $category_id);
-            $url                = 'https://api.trendyol.com/sapigw/product-categories/'.$category_id.'/attributes';
-            $result             = $this->request()->get($url);
-            $result->commission = $keys['Commission'] ?? 0;
+            $cache = $this->request()->cache('get_category_info-'.$category_id);
+            if($cache === false){
+                $url    = 'https://api.trendyol.com/sapigw/product-categories/'.$category_id.'/attributes';
+                $result = $this->request()->get($url);
+                $this->request()->cache('get_category_info-'.$category_id, $result);
+            }
+            else{
+                $result = $cache;
+            }
             return $result;
         }
         
