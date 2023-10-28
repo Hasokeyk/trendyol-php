@@ -154,7 +154,6 @@
                     ],
                 ],
             ];
-            print_r($post_data);
             
             $product_result = $this->request()->put($url, $post_data);
             if(isset($product_result->batchRequestId)){
