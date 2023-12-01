@@ -86,7 +86,9 @@
         
         public function get_category_attr($category_id = null, $attr_id = null){
             $get_category_info = $this->get_category_info($category_id);
+//            print_r($get_category_info->categoryAttributes);
             foreach($get_category_info->categoryAttributes as $attr){
+                print_r($attr);
                 if($attr->attribute->id == $attr_id){
                     return $attr;
                 }
@@ -98,7 +100,6 @@
             $product        = $this->product()->get_my_product($barcode);
             $product_cat_id = $product->content[0]->pimCategoryId;
             $all_cat        = $this->get_categories();
-            //            print_r($all_cat);
             return $this->find_parent_categories($all_cat->categories, $product_cat_id);
         }
         

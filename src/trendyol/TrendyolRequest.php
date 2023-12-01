@@ -43,8 +43,8 @@
             
             $result   = curl_exec($ch);
             $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            if($httpcode !== 200){
-                throw new Exception($result);
+            if(!in_array($httpcode, [200, 400, 500]) or empty($result)){
+                throw new Exception("Trendyol API'sine bağlanılamıyor.");
             }
             
             $result = json_decode($result);
@@ -81,7 +81,7 @@
             $result   = curl_exec($ch);
             $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             
-            if($httpcode !== 200){
+            if(!in_array($httpcode, [200, 400, 500]) or empty($result)){
                 throw new Exception("Trendyol API'sine bağlanılamıyor.");
             }
             
@@ -119,7 +119,7 @@
             $result   = curl_exec($ch);
             $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             
-            if($httpcode !== 200){
+            if(!in_array($httpcode, [200, 400, 500]) or empty($result)){
                 throw new Exception("Trendyol API'sine bağlanılamıyor.");
             }
             

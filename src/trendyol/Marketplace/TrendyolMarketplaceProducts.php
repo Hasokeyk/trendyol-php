@@ -22,32 +22,27 @@
         
         public function get_my_products($filter = []){
             
-            $cache = $this->request()->cache('get_my_products-'.md5(json_encode($filter)));
-            if($cache === false){
-                $url = 'https://api.trendyol.com/sapigw/suppliers/'.$this->supplierId.'/products';
-                
-                $required_query_data = [
-                    'barcode'       => null,
-                    'startDate'     => null,
-                    'endDate'       => null,
-                    'page'          => 0,
-                    'dateQueryType' => 'CREATED_DATE',
-                    'sst'           => 'BEST_SELLER',
-                    'size'          => null,
-                    'supplierId'    => $this->supplierId,
-                    'order'         => 'title',
-                ];
-                if(is_array($filter) and !is_null($filter)){
-                    $required_query_data = array_merge($required_query_data, $filter);
-                }
-                $new_url = http_build_query($required_query_data);
-                
-                $result = $this->request()->get($url.'?'.$new_url);
-                $this->request()->cache('get_my_products-'.md5(json_encode($filter)), $result);
+            $url = 'https://api.trendyol.com/sapigw/suppliers/'.$this->supplierId.'/products';
+            
+            $required_query_data = [
+                'barcode'       => null,
+                'startDate'     => null,
+                'endDate'       => null,
+                'page'          => 0,
+                'dateQueryType' => 'CREATED_DATE',
+                'sst'           => 'BEST_SELLER',
+                'size'          => null,
+                'supplierId'    => $this->supplierId,
+                'order'         => 'title',
+            ];
+            if(is_array($filter)){
+                $required_query_data = array_merge($required_query_data, $filter);
             }
-            else{
-                $result = $cache;
-            }
+            $new_url = http_build_query($required_query_data);
+            
+            $result = $this->request()->get($url.'?'.$new_url);
+            $this->request()->cache('get_my_products-'.md5(json_encode($filter)), $result);
+            
             return $result;
         }
         
@@ -264,7 +259,7 @@
                 $product_info = $this->get_my_product($barcode);
                 if(isset($product_info->content[0])){
                     $product_content_id = $product_info->content[0]->productContentId;
-                    echo $url                = 'https://public-mdc.trendyol.com/discovery-web-socialgw-service/api/review/'.$product_content_id.'?merchantId='.$this->supplierId.'&storefrontId=1&culture=tr-TR&order=5&searchValue=&onlySellerReviews=false&ratingValues[]=5&page=0';
+                    $url                = 'https://public-mdc.trendyol.com/discovery-web-socialgw-service/api/review/'.$product_content_id.'?merchantId='.$this->supplierId.'&storefrontId=1&culture=tr-TR&order=5&searchValue=&onlySellerReviews=false&ratingValues[]=5&page=0';
                     $body               = $this->request()->get($url);
                     
                     if(isset($body->result) and $body->result != null){
