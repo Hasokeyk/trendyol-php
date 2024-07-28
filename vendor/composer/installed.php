@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'hasokeyk/trendyol',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '5bf5aaefc50be1155662a6bbc911e8c6e8522572',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => null,
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'hasokeyk/trendyol' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '5bf5aaefc50be1155662a6bbc911e8c6e8522572',
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => null,
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

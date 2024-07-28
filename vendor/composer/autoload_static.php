@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit287a1f77ef9d63f9db298495b8884684
+class ComposerStaticInitbe1639c79c7c0ebc1325308ddc67adee
 {
     public static $prefixLengthsPsr4 = array (
         'H' => 
@@ -16,7 +16,7 @@ class ComposerStaticInit287a1f77ef9d63f9db298495b8884684
     public static $prefixDirsPsr4 = array (
         'Hasokeyk\\Trendyol\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/trendyol',
+            0 => __DIR__ . '/../..' . '/src/Trendyol',
         ),
     );
 
@@ -27,9 +27,9 @@ class ComposerStaticInit287a1f77ef9d63f9db298495b8884684
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit287a1f77ef9d63f9db298495b8884684::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit287a1f77ef9d63f9db298495b8884684::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit287a1f77ef9d63f9db298495b8884684::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitbe1639c79c7c0ebc1325308ddc67adee::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitbe1639c79c7c0ebc1325308ddc67adee::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitbe1639c79c7c0ebc1325308ddc67adee::$classMap;
 
         }, null, ClassLoader::class);
     }

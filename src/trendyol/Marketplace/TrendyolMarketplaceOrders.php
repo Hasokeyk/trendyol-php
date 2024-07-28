@@ -2,8 +2,6 @@
 
     namespace Hasokeyk\Trendyol\Marketplace;
 
-    use Hasokeyk\Trendyol\TrendyolRequest;
-
     class TrendyolMarketplaceOrders{
 
         public $supplierId;
@@ -15,6 +13,10 @@
 		    $this->username   = $trendyol->username;
 		    $this->password   = $trendyol->password;
 		    $this->trendyol   = $trendyol;
+	    }
+
+	    function request(){
+		    return $this->trendyol->request;
 	    }
 
         public function get_my_orders($filter = []){
@@ -35,7 +37,7 @@
             $required_query_data = array_merge($required_query_data, $filter);
             $new_url             = http_build_query($required_query_data);
 
-            $result = $this->trendyol->request->get($url.'?'.$new_url);
+            $result = $this->request()->get($url.'?'.$new_url);
             return $result;
         }
 

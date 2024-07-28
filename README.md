@@ -19,7 +19,7 @@ Aşağıdaki örnek kod ile trendyol bağlantınızı yapabilirsiniz
 ```php
 <?php
 
-    use Hasokeyk\Trendyol\Trendyol;
+    use Hasokeyk\trendyol\Trendyol;
 
     require (__DIR__)."/vendor/autoload.php";
 
@@ -38,7 +38,7 @@ Trendyol'a kayıtlı olan tüm markaların listesini bu kodlar ile çekebilirsin
 ```php
 <?php
 
-    use Hasokeyk\Trendyol\Trendyol;
+    use Hasokeyk\trendyol\Trendyol;
 
     require (__DIR__)."/vendor/autoload.php";
 
@@ -60,7 +60,7 @@ Trendyol'a kendi markanızı veya başka markaları aratabilirsiniz.
 ```php
 <?php
 
-    use Hasokeyk\Trendyol\Trendyol;
+    use Hasokeyk\trendyol\Trendyol;
 
     require (__DIR__)."/vendor/autoload.php";
 
@@ -82,7 +82,7 @@ Trendyoldaki tüm kategorileri ve komisyonlarını çekebilirsiniz.
 ```php
 <?php
 
-    use Hasokeyk\Trendyol\Trendyol;
+    use Hasokeyk\trendyol\Trendyol;
 
     require (__DIR__)."/vendor/autoload.php";
 
@@ -104,7 +104,7 @@ Trendyoldaki belirlediğiniz kategorilerin bilgilerini ve komisyonunu çekebilir
 ```php
 <?php
 
-    use Hasokeyk\Trendyol\Trendyol;
+    use Hasokeyk\trendyol\Trendyol;
 
     require (__DIR__)."/vendor/autoload.php";
 
@@ -125,7 +125,7 @@ Trendyoldaki mağazanıza ait tüm siparişleri çekebilirsiniz.
 ```php
 <?php
 
-    use Hasokeyk\Trendyol\Trendyol;
+    use Hasokeyk\trendyol\Trendyol;
 
     require (__DIR__)."/vendor/autoload.php";
 
@@ -150,7 +150,7 @@ Trendyoldaki mağazanıza ait tüm ürünleri çekebilirsiniz.
 ```php
 <?php
 
-    use Hasokeyk\Trendyol\Trendyol;
+    use Hasokeyk\trendyol\Trendyol;
 
     require (__DIR__)."/vendor/autoload.php";
 

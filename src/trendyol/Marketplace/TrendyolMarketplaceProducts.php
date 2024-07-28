@@ -2,8 +2,6 @@
 
 	namespace Hasokeyk\Trendyol\Marketplace;
 
-	use Hasokeyk\Trendyol\TrendyolRequest;
-
 	class TrendyolMarketplaceProducts{
 
 		public $supplierId;

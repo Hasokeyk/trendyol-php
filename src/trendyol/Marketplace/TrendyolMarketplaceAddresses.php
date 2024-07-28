@@ -2,8 +2,6 @@
 
     namespace Hasokeyk\Trendyol\Marketplace;
 
-    use Hasokeyk\Trendyol\TrendyolRequest;
-
     class TrendyolMarketplaceAddresses{
 
         public $supplierId;
@@ -17,9 +15,9 @@
 		    $this->trendyol   = $trendyol;
 	    }
 
-        public function request(){
-            return new TrendyolRequest($this->supplierId, $this->username, $this->password);
-        }
+	    function request(){
+		    return $this->trendyol->request;
+	    }
 
         public function get_my_addresses(){
             $url    = 'https://api.trendyol.com/sapigw/suppliers/'.$this->supplierId.'/addresses';
