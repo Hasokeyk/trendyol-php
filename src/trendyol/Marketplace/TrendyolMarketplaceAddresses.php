@@ -10,11 +10,12 @@
         public $username;
         public $password;
 
-        function __construct($supplierId = null, $username = null, $password = null){
-            $this->supplierId = $supplierId;
-            $this->username   = $username;
-            $this->password   = $password;
-        }
+	    function __construct($trendyol){
+		    $this->supplierId = $trendyol->supplierId;
+		    $this->username   = $trendyol->username;
+		    $this->password   = $trendyol->password;
+		    $this->trendyol   = $trendyol;
+	    }
 
         public function request(){
             return new TrendyolRequest($this->supplierId, $this->username, $this->password);

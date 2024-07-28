@@ -1,51 +1,49 @@
 <?php
 
-    namespace Hasokeyk\Trendyol\Marketplace;
+	namespace Hasokeyk\Trendyol\Marketplace;
 
-    use Hasokeyk\Trendyol\TrendyolRequest;
+	use Hasokeyk\Trendyol\TrendyolRequest;
 
-    class TrendyolMarketplace{
+	class TrendyolMarketplace{
 
-        public $supplierId;
-        public $username;
-        public $password;
+		public $supplierId;
+		public $username;
+		public $password;
+		private $trendyol;
 
-        function __construct($supplierId = null, $username = null, $password = null){
-            $this->supplierId = $supplierId;
-            $this->username   = $username;
-            $this->password   = $password;
-        }
+		function __construct($trendyol){
+			$this->supplierId = $trendyol->supplierId;
+			$this->username   = $trendyol->username;
+			$this->password   = $trendyol->password;
+			$this->trendyol   = $trendyol;
+		}
 
-        public function TrendyolRequest(){
-            return new TrendyolRequest($this->supplierId, $this->username, $this->password);
-        }
+		public function TrendyolMarketplaceCategories(): TrendyolMarketplaceCategories{
+			return new TrendyolMarketplaceCategories($this->trendyol);
+		}
 
-        public function TrendyolMarketplaceCategories(){
-            return new TrendyolMarketplaceCategories($this->supplierId, $this->username, $this->password);
-        }
+		public function TrendyolMarketplaceProducts(): TrendyolMarketplaceProducts{
+			return new TrendyolMarketplaceProducts($this->trendyol);
+		}
 
-        public function TrendyolMarketplaceProducts(){
-            return new TrendyolMarketplaceProducts($this->supplierId, $this->username, $this->password);
-        }
+		public function TrendyolMarketplaceBrands(): TrendyolMarketplaceBrands{
+			return new TrendyolMarketplaceBrands($this->trendyol);
+		}
 
-        public function TrendyolMarketplaceBrands(){
-            return new TrendyolMarketplaceBrands($this->supplierId, $this->username, $this->password);
-        }
+		public function TrendyolMarketplaceShipment(): TrendyolMarketplaceShipment{
+			return new TrendyolMarketplaceShipment($this->trendyol);
+		}
 
-        public function TrendyolMarketplaceShipment(){
-            return new TrendyolMarketplaceShipment($this->supplierId, $this->username, $this->password);
-        }
+		public function TrendyolMarketplaceAddresses(): TrendyolMarketplaceAddresses{
+			return new TrendyolMarketplaceAddresses($this->trendyol);
+		}
 
-        public function TrendyolMarketplaceAddresses(){
-            return new TrendyolMarketplaceAddresses($this->supplierId, $this->username, $this->password);
-        }
+		public function TrendyolMarketplaceOrders(): TrendyolMarketplaceOrders{
+			return new TrendyolMarketplaceOrders($this->trendyol);
+		}
 
-        public function TrendyolMarketplaceOrders(){
-            return new TrendyolMarketplaceOrders($this->supplierId, $this->username, $this->password);
-        }
+		public function TrendyolMarketplaceCustomerQuestions(): TrendyolMarketplaceCustomerQuestions{
+			return new TrendyolMarketplaceCustomerQuestions($this->trendyol);
+		}
 
-        public function TrendyolMarketplaceCustomerQuestions(){
-            return new TrendyolMarketplaceCustomerQuestions($this->supplierId, $this->username, $this->password);
-        }
-
-    }
+	}

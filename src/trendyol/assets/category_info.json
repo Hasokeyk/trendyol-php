@@ -3336,16 +3336,6 @@
               "ParentId": 2729,
               "Nodes": [
                 {
-                  "Id": 582,
-                  "Name": "Haşema",
-                  "ParentId": 2745,
-                  "Nodes": null,
-                  "Commission": 21.36,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
                   "Id": 2760,
                   "Name": "Tesettür Mayo",
                   "ParentId": 2745,
@@ -6462,6 +6452,16 @@
               "Maturity": 28,
               "isLeaf": false,
               "isClosed": false
+            },
+            {
+              "Id": 5555,
+              "Name": "Terzi Mankeni",
+              "ParentId": 3964,
+              "Nodes": null,
+              "Commission": 20.34,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
             }
           ],
           "Commission": 14,
@@ -7333,21 +7333,11 @@
               "Commission": 12.2,
               "Maturity": 21,
               "isLeaf": false,
-              "isClosed": false
+              "isClosed": true
             }
           ],
           "Commission": 18,
           "Maturity": 45,
-          "isLeaf": false,
-          "isClosed": false
-        },
-        {
-          "Id": 698,
-          "Name": "Yemek Kitabı",
-          "ParentId": 687,
-          "Nodes": null,
-          "Commission": 13.22,
-          "Maturity": 21,
           "isLeaf": false,
           "isClosed": false
         },
@@ -7384,7 +7374,7 @@
               "Commission": 13.22,
               "Maturity": 21,
               "isLeaf": false,
-              "isClosed": false
+              "isClosed": true
             },
             {
               "Id": 1740,
@@ -7425,7 +7415,7 @@
               "Commission": 13.22,
               "Maturity": 21,
               "isLeaf": false,
-              "isClosed": false
+              "isClosed": true
             },
             {
               "Id": 1647,
@@ -7435,7 +7425,7 @@
               "Commission": 13.22,
               "Maturity": 21,
               "isLeaf": false,
-              "isClosed": false
+              "isClosed": true
             },
             {
               "Id": 1648,
@@ -7496,7 +7486,7 @@
                       "Commission": 13.22,
                       "Maturity": 21,
                       "isLeaf": false,
-                      "isClosed": false
+                      "isClosed": true
                     },
                     {
                       "Id": 1688,
@@ -7572,7 +7562,7 @@
                   "Commission": 13.22,
                   "Maturity": 21,
                   "isLeaf": false,
-                  "isClosed": false
+                  "isClosed": true
                 },
                 {
                   "Id": 1681,
@@ -7657,16 +7647,6 @@
           "isClosed": false
         },
         {
-          "Id": 1637,
-          "Name": "Gezi \u0026 Turizm",
-          "ParentId": 687,
-          "Nodes": null,
-          "Commission": 13.22,
-          "Maturity": 21,
-          "isLeaf": false,
-          "isClosed": false
-        },
-        {
           "Id": 1640,
           "Name": "Din ve Mitoloji",
           "ParentId": 687,
@@ -7745,7 +7725,7 @@
                   "Commission": 12.2,
                   "Maturity": 21,
                   "isLeaf": false,
-                  "isClosed": false
+                  "isClosed": true
                 },
                 {
                   "Id": 1697,
@@ -7943,6 +7923,16 @@
               "Maturity": 21,
               "isLeaf": false,
               "isClosed": false
+            },
+            {
+              "Id": 5542,
+              "Name": "Boyama Kitapları",
+              "ParentId": 4540,
+              "Nodes": null,
+              "Commission": 12.2,
+              "Maturity": 21,
+              "isLeaf": false,
+              "isClosed": false
             }
           ],
           "Commission": 12,
@@ -7973,7 +7963,7 @@
               "Commission": 13.22,
               "Maturity": 21,
               "isLeaf": false,
-              "isClosed": false
+              "isClosed": true
             }
           ],
           "Commission": 18,
@@ -7999,7 +7989,7 @@
                   "Commission": 13.22,
                   "Maturity": 21,
                   "isLeaf": false,
-                  "isClosed": false
+                  "isClosed": true
                 },
                 {
                   "Id": 1723,
@@ -8043,6 +8033,56 @@
               "ParentId": 4589,
               "Nodes": [
                 {
+                  "Id": 1662,
+                  "Name": "El Sanatları",
+                  "ParentId": 1632,
+                  "Nodes": null,
+                  "Commission": 13.22,
+                  "Maturity": 21,
+                  "isLeaf": false,
+                  "isClosed": false
+                },
+                {
+                  "Id": 1665,
+                  "Name": "Kültür Kitabı",
+                  "ParentId": 1632,
+                  "Nodes": null,
+                  "Commission": 13.22,
+                  "Maturity": 21,
+                  "isLeaf": false,
+                  "isClosed": true
+                },
+                {
+                  "Id": 1668,
+                  "Name": "Resim \u0026 Çizim Kitabı",
+                  "ParentId": 1632,
+                  "Nodes": null,
+                  "Commission": 13.22,
+                  "Maturity": 21,
+                  "isLeaf": false,
+                  "isClosed": false
+                },
+                {
+                  "Id": 1670,
+                  "Name": "Sanat \u0026 Mimari Kitabı",
+                  "ParentId": 1632,
+                  "Nodes": null,
+                  "Commission": 13.22,
+                  "Maturity": 21,
+                  "isLeaf": false,
+                  "isClosed": false
+                },
+                {
+                  "Id": 1671,
+                  "Name": "Sinema \u0026 Film Kitabı",
+                  "ParentId": 1632,
+                  "Nodes": null,
+                  "Commission": 13.22,
+                  "Maturity": 21,
+                  "isLeaf": false,
+                  "isClosed": false
+                },
+                {
                   "Id": 1732,
                   "Name": "Sahne Sanatları ve Tiyatro Kitabı",
                   "ParentId": 1632,
@@ -8055,6 +8095,16 @@
                 {
                   "Id": 1733,
                   "Name": "Sinema Kitabı",
+                  "ParentId": 1632,
+                  "Nodes": null,
+                  "Commission": 13.22,
+                  "Maturity": 21,
+                  "isLeaf": false,
+                  "isClosed": true
+                },
+                {
+                  "Id": 2171,
+                  "Name": "Müzik Kitapları",
                   "ParentId": 1632,
                   "Nodes": null,
                   "Commission": 13.22,
@@ -8074,6 +8124,26 @@
               "ParentId": 4589,
               "Nodes": [
                 {
+                  "Id": 698,
+                  "Name": "Yemek Kitabı",
+                  "ParentId": 1634,
+                  "Nodes": null,
+                  "Commission": 13.22,
+                  "Maturity": 21,
+                  "isLeaf": false,
+                  "isClosed": false
+                },
+                {
+                  "Id": 1637,
+                  "Name": "Gezi \u0026 Turizm",
+                  "ParentId": 1634,
+                  "Nodes": null,
+                  "Commission": 13.22,
+                  "Maturity": 21,
+                  "isLeaf": false,
+                  "isClosed": false
+                },
+                {
                   "Id": 1659,
                   "Name": "Aksesuar Kitapları",
                   "ParentId": 1634,
@@ -8081,7 +8151,7 @@
                   "Commission": 13.22,
                   "Maturity": 21,
                   "isLeaf": false,
-                  "isClosed": false
+                  "isClosed": true
                 },
                 {
                   "Id": 1660,
@@ -8104,16 +8174,6 @@
                   "isClosed": false
                 },
                 {
-                  "Id": 1662,
-                  "Name": "El Sanatları",
-                  "ParentId": 1634,
-                  "Nodes": null,
-                  "Commission": 13.22,
-                  "Maturity": 21,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
                   "Id": 1663,
                   "Name": "Evcil Hayvanlar",
                   "ParentId": 1634,
@@ -8121,21 +8181,11 @@
                   "Commission": 13.22,
                   "Maturity": 21,
                   "isLeaf": false,
-                  "isClosed": false
+                  "isClosed": true
                 },
                 {
                   "Id": 1664,
                   "Name": "Fotoğrafçılık Kitabı",
-                  "ParentId": 1634,
-                  "Nodes": null,
-                  "Commission": 13.22,
-                  "Maturity": 21,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 1665,
-                  "Name": "Kültür Kitabı",
                   "ParentId": 1634,
                   "Nodes": null,
                   "Commission": 13.22,
@@ -8156,46 +8206,6 @@
                 {
                   "Id": 1667,
                   "Name": "Bulmaca Kitabı",
-                  "ParentId": 1634,
-                  "Nodes": null,
-                  "Commission": 13.22,
-                  "Maturity": 21,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 1668,
-                  "Name": "Resim \u0026 Çizim Kitabı",
-                  "ParentId": 1634,
-                  "Nodes": null,
-                  "Commission": 13.22,
-                  "Maturity": 21,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 1670,
-                  "Name": "Sanat \u0026 Mimari Kitabı",
-                  "ParentId": 1634,
-                  "Nodes": null,
-                  "Commission": 13.22,
-                  "Maturity": 21,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 1671,
-                  "Name": "Sinema \u0026 Film Kitabı",
-                  "ParentId": 1634,
-                  "Nodes": null,
-                  "Commission": 13.22,
-                  "Maturity": 21,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2171,
-                  "Name": "Müzik Kitapları",
                   "ParentId": 1634,
                   "Nodes": null,
                   "Commission": 13.22,
@@ -9309,7 +9319,7 @@
                   "Commission": 20.34,
                   "Maturity": 28,
                   "isLeaf": false,
-                  "isClosed": true
+                  "isClosed": false
                 },
                 {
                   "Id": 4996,
@@ -9379,7 +9389,7 @@
                   "Commission": 18.31,
                   "Maturity": 28,
                   "isLeaf": false,
-                  "isClosed": false
+                  "isClosed": true
                 }
               ],
               "Commission": 20,
@@ -11342,16 +11352,6 @@
                       "Nodes": null,
                       "Commission": 19.32,
                       "Maturity": 28,
-                      "isLeaf": false,
-                      "isClosed": false
-                    },
-                    {
-                      "Id": 4450,
-                      "Name": "Bıçaklar",
-                      "ParentId": 2134,
-                      "Nodes": null,
-                      "Commission": 20,
-                      "Maturity": 45,
                       "isLeaf": false,
                       "isClosed": false
                     },
@@ -19855,7 +19855,7 @@
               "Commission": 0,
               "Maturity": 21,
               "isLeaf": false,
-              "isClosed": true
+              "isClosed": false
             },
             {
               "Id": 4985,
@@ -20665,7 +20665,7 @@
             },
             {
               "Id": 4946,
-              "Name": "Bilgisayar \u0026 Tablet Aksesuarlar",
+              "Name": "Bilgisayar Aksesuarları",
               "ParentId": 4938,
               "Nodes": [
                 {
@@ -21190,26 +21190,6 @@
                   "ParentId": 4946,
                   "Nodes": [
                     {
-                      "Id": 3815,
-                      "Name": "Yazılabilir DVD",
-                      "ParentId": 4982,
-                      "Nodes": null,
-                      "Commission": 21.5,
-                      "Maturity": 21,
-                      "isLeaf": false,
-                      "isClosed": false
-                    },
-                    {
-                      "Id": 3816,
-                      "Name": "Yazılabilir CD",
-                      "ParentId": 4982,
-                      "Nodes": null,
-                      "Commission": 21.5,
-                      "Maturity": 21,
-                      "isLeaf": false,
-                      "isClosed": false
-                    },
-                    {
                       "Id": 4949,
                       "Name": "Çevirici Dönüştürücü",
                       "ParentId": 4982,
@@ -21257,7 +21237,7 @@
                       "Commission": 20.34,
                       "Maturity": 21,
                       "isLeaf": false,
-                      "isClosed": false
+                      "isClosed": true
                     },
                     {
                       "Id": 5476,
@@ -21345,54 +21325,54 @@
                   "Maturity": 21,
                   "isLeaf": false,
                   "isClosed": false
+                }
+              ],
+              "Commission": 12,
+              "Maturity": 21,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 5385,
+              "Name": "Tablet Aksesuarları",
+              "ParentId": 4938,
+              "Nodes": [
+                {
+                  "Id": 2989,
+                  "Name": "Tablet Kılıfı",
+                  "ParentId": 5385,
+                  "Nodes": null,
+                  "Commission": 21.5,
+                  "Maturity": 21,
+                  "isLeaf": false,
+                  "isClosed": false
                 },
                 {
-                  "Id": 5385,
-                  "Name": "Tablet Aksesuarları",
-                  "ParentId": 4946,
-                  "Nodes": [
-                    {
-                      "Id": 2989,
-                      "Name": "Tablet Kılıfı",
-                      "ParentId": 5385,
-                      "Nodes": null,
-                      "Commission": 21.5,
-                      "Maturity": 21,
-                      "isLeaf": false,
-                      "isClosed": false
-                    },
-                    {
-                      "Id": 4956,
-                      "Name": "Tablet Standı",
-                      "ParentId": 5385,
-                      "Nodes": null,
-                      "Commission": 21.5,
-                      "Maturity": 21,
-                      "isLeaf": false,
-                      "isClosed": false
-                    },
-                    {
-                      "Id": 5367,
-                      "Name": "Tablet Kalemi",
-                      "ParentId": 5385,
-                      "Nodes": null,
-                      "Commission": 21.5,
-                      "Maturity": 21,
-                      "isLeaf": false,
-                      "isClosed": false
-                    },
-                    {
-                      "Id": 5509,
-                      "Name": "Tablet Ekran Koruyucuları",
-                      "ParentId": 5385,
-                      "Nodes": null,
-                      "Commission": 21.5,
-                      "Maturity": 21,
-                      "isLeaf": false,
-                      "isClosed": false
-                    }
-                  ],
-                  "Commission": 12,
+                  "Id": 4956,
+                  "Name": "Tablet Standı",
+                  "ParentId": 5385,
+                  "Nodes": null,
+                  "Commission": 21.5,
+                  "Maturity": 21,
+                  "isLeaf": false,
+                  "isClosed": false
+                },
+                {
+                  "Id": 5367,
+                  "Name": "Tablet Kalemi",
+                  "ParentId": 5385,
+                  "Nodes": null,
+                  "Commission": 21.5,
+                  "Maturity": 21,
+                  "isLeaf": false,
+                  "isClosed": false
+                },
+                {
+                  "Id": 5509,
+                  "Name": "Tablet Ekran Koruyucuları",
+                  "ParentId": 5385,
+                  "Nodes": null,
+                  "Commission": 21.5,
                   "Maturity": 21,
                   "isLeaf": false,
                   "isClosed": false
@@ -21513,6 +21493,16 @@
               "ParentId": 5249,
               "Nodes": null,
               "Commission": 7.12,
+              "Maturity": 21,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 5539,
+              "Name": "Çocuk Çizim Tableti",
+              "ParentId": 5249,
+              "Nodes": null,
+              "Commission": 15,
               "Maturity": 21,
               "isLeaf": false,
               "isClosed": false
@@ -21810,217 +21800,6 @@
               ],
               "Commission": 2,
               "Maturity": 30,
-              "isLeaf": false,
-              "isClosed": false
-            },
-            {
-              "Id": 2904,
-              "Name": "Kalem",
-              "ParentId": 809,
-              "Nodes": [
-                {
-                  "Id": 812,
-                  "Name": "Kalem Kutusu",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 1525,
-                  "Name": "Tebeşir \u0026 Tahta Kalemi",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2785,
-                  "Name": "CD \u0026 DVD Kalemleri",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2786,
-                  "Name": "Fosforlu Kalemler",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2787,
-                  "Name": "Kalem Uçları",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2788,
-                  "Name": "Keçeli Kalemler",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2789,
-                  "Name": "Kurşun Kalemler",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2790,
-                  "Name": "Prestij ve Dolma Kalemler",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2791,
-                  "Name": "Tükenmez Kalemler",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2792,
-                  "Name": "Teknik Çizim Kalemi",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2836,
-                  "Name": "Jel Mürekkepli Kalem",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3467,
-                  "Name": "Uçlu Kalem",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3468,
-                  "Name": "Pilot Kalem",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3846,
-                  "Name": "Asetat Kalemi",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3874,
-                  "Name": "Kaligrafi Kalemi",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3875,
-                  "Name": "İmza Kalemi",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3877,
-                  "Name": "Versatil Kalem",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3879,
-                  "Name": "Kalem Setleri",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3880,
-                  "Name": "İğne Uçlu Kalem",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3881,
-                  "Name": "Dolma Kalem",
-                  "ParentId": 2904,
-                  "Nodes": null,
-                  "Commission": 18.31,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                }
-              ],
-              "Commission": 20,
-              "Maturity": 45,
               "isLeaf": false,
               "isClosed": false
             },
@@ -22469,117 +22248,6 @@
           "ParentId": 1216,
           "Nodes": [
             {
-              "Id": 2022,
-              "Name": "Boyalar",
-              "ParentId": 2014,
-              "Nodes": [
-                {
-                  "Id": 2024,
-                  "Name": "Ahşap Boyası",
-                  "ParentId": 2022,
-                  "Nodes": null,
-                  "Commission": 16.78,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2025,
-                  "Name": "Akrilik Boya",
-                  "ParentId": 2022,
-                  "Nodes": null,
-                  "Commission": 16.78,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2026,
-                  "Name": "Kuru Boya Kalemi",
-                  "ParentId": 2022,
-                  "Nodes": null,
-                  "Commission": 16.78,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2027,
-                  "Name": "Pastel Boya",
-                  "ParentId": 2022,
-                  "Nodes": null,
-                  "Commission": 16.78,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2028,
-                  "Name": "Yağlıboya",
-                  "ParentId": 2022,
-                  "Nodes": null,
-                  "Commission": 16.78,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2029,
-                  "Name": "Sulu Boya",
-                  "ParentId": 2022,
-                  "Nodes": null,
-                  "Commission": 16.78,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2030,
-                  "Name": "Guaj Boya",
-                  "ParentId": 2022,
-                  "Nodes": null,
-                  "Commission": 16.78,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2031,
-                  "Name": "Cam Boyası",
-                  "ParentId": 2022,
-                  "Nodes": null,
-                  "Commission": 16.78,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2032,
-                  "Name": "Ebru Boyası",
-                  "ParentId": 2022,
-                  "Nodes": null,
-                  "Commission": 16.78,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2034,
-                  "Name": "Kumaş Boyası",
-                  "ParentId": 2022,
-                  "Nodes": null,
-                  "Commission": 16.78,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                }
-              ],
-              "Commission": 20,
-              "Maturity": 45,
-              "isLeaf": false,
-              "isClosed": false
-            },
-            {
               "Id": 2023,
               "Name": "Sanatsal Kağıtlar \u0026 Kalemler",
               "ParentId": 2014,
@@ -22666,6 +22334,318 @@
           "isClosed": false
         },
         {
+          "Id": 2022,
+          "Name": "Boyalar",
+          "ParentId": 1216,
+          "Nodes": [
+            {
+              "Id": 2024,
+              "Name": "Ahşap Boyası",
+              "ParentId": 2022,
+              "Nodes": null,
+              "Commission": 16.78,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2025,
+              "Name": "Akrilik Boya",
+              "ParentId": 2022,
+              "Nodes": null,
+              "Commission": 16.78,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2026,
+              "Name": "Kuru Boya Kalemi",
+              "ParentId": 2022,
+              "Nodes": null,
+              "Commission": 16.78,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2027,
+              "Name": "Pastel Boya",
+              "ParentId": 2022,
+              "Nodes": null,
+              "Commission": 16.78,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2028,
+              "Name": "Yağlıboya",
+              "ParentId": 2022,
+              "Nodes": null,
+              "Commission": 16.78,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2029,
+              "Name": "Sulu Boya",
+              "ParentId": 2022,
+              "Nodes": null,
+              "Commission": 16.78,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2030,
+              "Name": "Guaj Boya",
+              "ParentId": 2022,
+              "Nodes": null,
+              "Commission": 16.78,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2031,
+              "Name": "Cam Boyası",
+              "ParentId": 2022,
+              "Nodes": null,
+              "Commission": 16.78,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2032,
+              "Name": "Ebru Boyası",
+              "ParentId": 2022,
+              "Nodes": null,
+              "Commission": 16.78,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2034,
+              "Name": "Kumaş Boyası",
+              "ParentId": 2022,
+              "Nodes": null,
+              "Commission": 16.78,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            }
+          ],
+          "Commission": 20,
+          "Maturity": 45,
+          "isLeaf": false,
+          "isClosed": false
+        },
+        {
+          "Id": 2175,
+          "Name": "Kırtasiye Kağıt Ürünleri",
+          "ParentId": 1216,
+          "Nodes": [
+            {
+              "Id": 1520,
+              "Name": "Defterler",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 13.22,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2794,
+              "Name": "Resmi \u0026 Ticari Evraklar",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2795,
+              "Name": "Teknik \u0026 Özel Kağıtlar",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2796,
+              "Name": "Zarflar",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2797,
+              "Name": "Fotokopi ve Baskı Kağıtları",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 7.12,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2798,
+              "Name": "Not Kağıtları ve Bloknotlar",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3413,
+              "Name": "Planlayıcı",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3414,
+              "Name": "Ajanda",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 13.22,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3862,
+              "Name": "Fotoğraf Albümü",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3863,
+              "Name": "Kartpostal",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3864,
+              "Name": "Kitap Ayracı",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3865,
+              "Name": "Takvim",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3866,
+              "Name": "Termal Rulo",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3867,
+              "Name": "Fotoğraf Kağıdı",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3868,
+              "Name": "Asetat Kağıdı",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3869,
+              "Name": "Tebrik Kartı",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3870,
+              "Name": "Faks Kağıdı",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3871,
+              "Name": "Sürekli Form Kağıdı",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3872,
+              "Name": "Karbon Kağıdı",
+              "ParentId": 2175,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            }
+          ],
+          "Commission": 20,
+          "Maturity": 45,
+          "isLeaf": false,
+          "isClosed": false
+        },
+        {
           "Id": 2902,
           "Name": "Masaüstü Gereçleri",
           "ParentId": 1216,
@@ -22721,207 +22701,6 @@
               "isClosed": false
             },
             {
-              "Id": 2175,
-              "Name": "Kırtasiye Kağıt Ürünleri",
-              "ParentId": 2902,
-              "Nodes": [
-                {
-                  "Id": 1520,
-                  "Name": "Defterler",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 13.22,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2794,
-                  "Name": "Resmi \u0026 Ticari Evraklar",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 15.25,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2795,
-                  "Name": "Teknik \u0026 Özel Kağıtlar",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 15.25,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2796,
-                  "Name": "Zarflar",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 15.25,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2797,
-                  "Name": "Fotokopi ve Baskı Kağıtları",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 7.12,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 2798,
-                  "Name": "Not Kağıtları ve Bloknotlar",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 15.25,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3413,
-                  "Name": "Planlayıcı",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 15.25,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3414,
-                  "Name": "Ajanda",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 13.22,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3862,
-                  "Name": "Fotoğraf Albümü",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 15.25,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3863,
-                  "Name": "Kartpostal",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 15.25,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3864,
-                  "Name": "Kitap Ayracı",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 15.25,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3865,
-                  "Name": "Takvim",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 15.25,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3866,
-                  "Name": "Termal Rulo",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 15.25,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3867,
-                  "Name": "Fotoğraf Kağıdı",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 15.25,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3868,
-                  "Name": "Asetat Kağıdı",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 15.25,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3869,
-                  "Name": "Tebrik Kartı",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 15.25,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3870,
-                  "Name": "Faks Kağıdı",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 15.25,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3871,
-                  "Name": "Sürekli Form Kağıdı",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 15.25,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                },
-                {
-                  "Id": 3872,
-                  "Name": "Karbon Kağıdı",
-                  "ParentId": 2175,
-                  "Nodes": null,
-                  "Commission": 15.25,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": false
-                }
-              ],
-              "Commission": 20,
-              "Maturity": 45,
-              "isLeaf": false,
-              "isClosed": false
-            },
-            {
               "Id": 3084,
               "Name": "Kartvizitlik",
               "ParentId": 2902,
@@ -22955,6 +22734,217 @@
               "Id": 3853,
               "Name": "Sümen Takımı",
               "ParentId": 2902,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            }
+          ],
+          "Commission": 20,
+          "Maturity": 45,
+          "isLeaf": false,
+          "isClosed": false
+        },
+        {
+          "Id": 2904,
+          "Name": "Kalem",
+          "ParentId": 1216,
+          "Nodes": [
+            {
+              "Id": 812,
+              "Name": "Kalem Kutusu",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 1525,
+              "Name": "Tebeşir \u0026 Tahta Kalemi",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2785,
+              "Name": "CD \u0026 DVD Kalemleri",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2786,
+              "Name": "Fosforlu Kalemler",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2787,
+              "Name": "Kalem Uçları",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2788,
+              "Name": "Keçeli Kalemler",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2789,
+              "Name": "Kurşun Kalemler",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2790,
+              "Name": "Prestij ve Dolma Kalemler",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2791,
+              "Name": "Tükenmez Kalemler",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2792,
+              "Name": "Teknik Çizim Kalemi",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 2836,
+              "Name": "Jel Mürekkepli Kalem",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3467,
+              "Name": "Uçlu Kalem",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3468,
+              "Name": "Pilot Kalem",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3846,
+              "Name": "Asetat Kalemi",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3874,
+              "Name": "Kaligrafi Kalemi",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3875,
+              "Name": "İmza Kalemi",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3877,
+              "Name": "Versatil Kalem",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3879,
+              "Name": "Kalem Setleri",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3880,
+              "Name": "İğne Uçlu Kalem",
+              "ParentId": 2904,
+              "Nodes": null,
+              "Commission": 18.31,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 3881,
+              "Name": "Dolma Kalem",
+              "ParentId": 2904,
               "Nodes": null,
               "Commission": 18.31,
               "Maturity": 28,
@@ -27638,16 +27628,6 @@
               "ParentId": 2377,
               "Nodes": [
                 {
-                  "Id": 2321,
-                  "Name": "Multivitamin",
-                  "ParentId": 2320,
-                  "Nodes": null,
-                  "Commission": 17.29,
-                  "Maturity": 28,
-                  "isLeaf": false,
-                  "isClosed": true
-                },
-                {
                   "Id": 2322,
                   "Name": "Vitamin",
                   "ParentId": 2320,
@@ -29262,6 +29242,26 @@
                   "Maturity": 28,
                   "isLeaf": false,
                   "isClosed": false
+                },
+                {
+                  "Id": 5543,
+                  "Name": "Isıtma Yakıtları",
+                  "ParentId": 798,
+                  "Nodes": null,
+                  "Commission": 17.29,
+                  "Maturity": 28,
+                  "isLeaf": false,
+                  "isClosed": false
+                },
+                {
+                  "Id": 5549,
+                  "Name": "Şömine ve Soba Ekipmanları",
+                  "ParentId": 798,
+                  "Nodes": null,
+                  "Commission": 17.29,
+                  "Maturity": 28,
+                  "isLeaf": false,
+                  "isClosed": false
                 }
               ],
               "Commission": 20,
@@ -29337,6 +29337,16 @@
                 {
                   "Id": 4760,
                   "Name": "Bitki Sulama Kabı",
+                  "ParentId": 802,
+                  "Nodes": null,
+                  "Commission": 17.29,
+                  "Maturity": 28,
+                  "isLeaf": false,
+                  "isClosed": false
+                },
+                {
+                  "Id": 5554,
+                  "Name": "Su Deposu",
                   "ParentId": 802,
                   "Nodes": null,
                   "Commission": 17.29,
@@ -30144,6 +30154,16 @@
               "Maturity": 28,
               "isLeaf": false,
               "isClosed": false
+            },
+            {
+              "Id": 5544,
+              "Name": "Depolama Evleri",
+              "ParentId": 797,
+              "Nodes": null,
+              "Commission": 10.68,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
             }
           ],
           "Commission": 2,
@@ -30579,7 +30599,27 @@
             },
             {
               "Id": 5530,
-              "Name": "Lazer Metre",
+              "Name": "Lazer Ölçüm Cihazları",
+              "ParentId": 1759,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 5546,
+              "Name": "Termometre \u0026 Nem Ölçer",
+              "ParentId": 1759,
+              "Nodes": null,
+              "Commission": 15.25,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 5557,
+              "Name": "Multimetre",
               "ParentId": 1759,
               "Nodes": null,
               "Commission": 15.25,
@@ -31003,6 +31043,26 @@
                   "Maturity": 28,
                   "isLeaf": false,
                   "isClosed": false
+                },
+                {
+                  "Id": 5547,
+                  "Name": "Kumpas",
+                  "ParentId": 2502,
+                  "Nodes": null,
+                  "Commission": 17.29,
+                  "Maturity": 28,
+                  "isLeaf": false,
+                  "isClosed": false
+                },
+                {
+                  "Id": 5548,
+                  "Name": "Kontrol Kalemi",
+                  "ParentId": 2502,
+                  "Nodes": null,
+                  "Commission": 17.29,
+                  "Maturity": 28,
+                  "isLeaf": false,
+                  "isClosed": false
                 }
               ],
               "Commission": 20,
@@ -31092,7 +31152,7 @@
             },
             {
               "Id": 2537,
-              "Name": "Kapı-Kapı Hırdavatı",
+              "Name": "Kapı Hırdavatı",
               "ParentId": 2520,
               "Nodes": null,
               "Commission": 17.29,
@@ -31434,6 +31494,66 @@
             {
               "Id": 5516,
               "Name": "Merdiven Aparatları",
+              "ParentId": 2520,
+              "Nodes": null,
+              "Commission": 17.29,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 5545,
+              "Name": "Vestiyer Askısı",
+              "ParentId": 2520,
+              "Nodes": null,
+              "Commission": 17.29,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 5550,
+              "Name": "Menteşeler",
+              "ParentId": 2520,
+              "Nodes": null,
+              "Commission": 17.29,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 5551,
+              "Name": "Mobilya Kulpu",
+              "ParentId": 2520,
+              "Nodes": null,
+              "Commission": 17.29,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 5552,
+              "Name": "Mobilya Ayakları",
+              "ParentId": 2520,
+              "Nodes": null,
+              "Commission": 17.29,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 5553,
+              "Name": "Mobilya Tekerlekleri",
+              "ParentId": 2520,
+              "Nodes": null,
+              "Commission": 17.29,
+              "Maturity": 28,
+              "isLeaf": false,
+              "isClosed": false
+            },
+            {
+              "Id": 5556,
+              "Name": "Valiz Tekerleği",
               "ParentId": 2520,
               "Nodes": null,
               "Commission": 17.29,
@@ -32616,7 +32736,7 @@
                   "Commission": 16.27,
                   "Maturity": 21,
                   "isLeaf": false,
-                  "isClosed": false
+                  "isClosed": true
                 }
               ],
               "Commission": 18,
@@ -32876,7 +32996,7 @@
               "Commission": 17.29,
               "Maturity": 21,
               "isLeaf": false,
-              "isClosed": false
+              "isClosed": true
             },
             {
               "Id": 1051,
@@ -32896,6 +33016,16 @@
                 {
                   "Id": 1783,
                   "Name": "Pedallı Araçlar",
+                  "ParentId": 1051,
+                  "Nodes": null,
+                  "Commission": 16.27,
+                  "Maturity": 21,
+                  "isLeaf": false,
+                  "isClosed": false
+                },
+                {
+                  "Id": 5540,
+                  "Name": "Akülü Araç Aksesuarları",
                   "ParentId": 1051,
                   "Nodes": null,
                   "Commission": 16.27,
@@ -33220,7 +33350,7 @@
               "Commission": 15.25,
               "Maturity": 21,
               "isLeaf": false,
-              "isClosed": false
+              "isClosed": true
             },
             {
               "Id": 2256,
@@ -33488,7 +33618,7 @@
                   "Commission": 17.29,
                   "Maturity": 21,
                   "isLeaf": false,
-                  "isClosed": false
+                  "isClosed": true
                 }
               ],
               "Commission": 15,
@@ -38971,6 +39101,16 @@
           "Maturity": 21,
           "isLeaf": false,
           "isClosed": false
+        },
+        {
+          "Id": 5541,
+          "Name": "Kargo Hizmeti",
+          "ParentId": 3981,
+          "Nodes": null,
+          "Commission": 10.17,
+          "Maturity": 14,
+          "isLeaf": false,
+          "isClosed": true
         }
       ],
       "Commission": 1,
