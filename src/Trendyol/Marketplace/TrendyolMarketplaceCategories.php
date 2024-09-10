@@ -4,9 +4,9 @@
 
 	class TrendyolMarketplaceCategories{
 
-		public $supplierId;
-		public $username;
-		public $password;
+		public  $supplierId;
+		public  $username;
+		public  $password;
 		private $trendyol;
 
 		function __construct($trendyol){
@@ -21,15 +21,8 @@
 		}
 
 		public function get_categories(){
-			$cache = $this->request()->cache('get_categories');
-			if($cache === false){
-				$url    = 'https://api.trendyol.com/sapigw/product-categories';
-				$result = $this->request()->get($url);
-				$this->request()->cache('get_categories', $result);
-			}
-			else{
-				$result = $cache;
-			}
+			$url    = 'https://api.trendyol.com/sapigw/product-categories';
+			$result = $this->request()->get($url);
 			return $result;
 		}
 
@@ -45,9 +38,6 @@
 
 				$category_info_json = json_decode(file_get_contents((__DIR__).'/../assets/category_info.json'), true);
 				$keys               = $this->trendyol_array_search($category_info_json['Categories'], 'Name', trim($match));
-
-				print_r($keys);
-
 				$supplider_cats->$id = (object)[
 					'cat_id'   => trim($keys['Id']),
 					'cat_name' => trim($match),
