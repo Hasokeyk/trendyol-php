@@ -4,9 +4,9 @@
 
 	class TrendyolMarketplaceProducts{
 
-		public $supplierId;
-		public $username;
-		public $password;
+		public  $supplierId;
+		public  $username;
+		public  $password;
 		private $trendyol;
 
 		function __construct($trendyol){
@@ -73,6 +73,22 @@
 			}
 
 			return false;
+		}
+
+		public function create_multi_product($data = []){
+			$url = $this->request()->api_url.'suppliers/'.$this->supplierId.'/v2/products';
+
+			$post_data['items'] = $data;
+
+			$product_result = $this->request()->post($url, $post_data);
+			if(isset($product_result->batchRequestId)){
+				$result = $this->get_batch_request_result($product_result->batchRequestId);
+			}
+			else{
+				$result = $product_result;
+			}
+
+			return $result;
 		}
 
 		public function create_product($data = []){

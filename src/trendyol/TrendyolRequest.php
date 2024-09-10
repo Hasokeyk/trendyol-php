@@ -17,7 +17,6 @@
 			$this->supplierId = $trendyol->supplierId;
 			$this->username   = $trendyol->username;
 			$this->password   = $trendyol->password;
-			$this->cache_path = (__DIR__).'/cache';
 
 			if($trendyol->test){
 				$this->api_url = 'https://stageapi.trendyol.com/stagesapigw/';
@@ -145,37 +144,6 @@
 
 		protected function authorization(){
 			return base64_encode($this->username.':'.$this->password);
-		}
-
-		public function cache($cache_name, $content = false, $json = false, $rewrite = false){
-
-			if($cache_name != null){
-
-				$cache_file_path = $this->cache_path.'/';
-				$cache_file      = $cache_file_path.($cache_name.'.json');
-
-				if($rewrite === true){
-					goto rewrite;
-				}
-
-				if(file_exists($cache_file) and time() <= strtotime('+'.$this->cache_time.' minute', filemtime($cache_file))){
-					$content = file_get_contents($cache_file);
-					return json_decode($content);
-				}
-				else if($content !== false){
-					rewrite:
-					if($json){
-						file_put_contents($cache_file, $content);
-					}
-					else{
-						file_put_contents($cache_file, json_encode($content));
-					}
-					return $content;
-				}
-
-			}
-			return false;
-
 		}
 
 	}
