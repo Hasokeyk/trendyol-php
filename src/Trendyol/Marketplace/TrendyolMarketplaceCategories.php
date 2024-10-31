@@ -16,8 +16,12 @@
 			$this->trendyol   = $trendyol;
 		}
 
-		function request(){
+		private function request(){
 			return $this->trendyol->request;
+		}
+
+		private function product(){
+			return new TrendyolMarketplaceProducts($this->trendyol);
 		}
 
 		public function get_categories(){
@@ -26,31 +30,6 @@
 			return $result;
 		}
 
-		public function get_my_categories(){
-
-			$url    = 'https://www.trendyol.com/sr?mid='.$this->supplierId;
-			$result = file_get_contents($url);
-			preg_match_all('/{"id":"([0-9]+)","text":"([^"]+)","beautifiedName":"[^"]+","count":([^"]+),"filtered":false,"filterField":"(webCategoryIds|leafCategoryIds)","type":"(WebCategory|LeafCategory)","url":"[^"]+"}/is', $result, $matches);
-
-			$supplider_cats = (object)[];
-			$total_product  = 0;
-			foreach($matches[1] as $id => $match){
-
-				$category_info_json = json_decode(file_get_contents((__DIR__).'/../assets/category_info.json'), true);
-				$keys               = $this->trendyol_array_search($category_info_json['Categories'], 'Name', trim($match));
-				$supplider_cats->$id = (object)[
-					'cat_id'   => trim($keys['Id']),
-					'cat_name' => trim($match),
-					'count'    => $matches[2][$id]
-				];
-
-				$total_product += $matches[2][$id] ?? 0;
-			}
-
-			$supplider_cats->total_product_count = $total_product;
-
-			return $supplider_cats;
-		}
 
 		public function get_category_info($category_id = null){
 			$url    = 'https://api.trendyol.com/sapigw/product-categories/'.$category_id.'/attributes';
@@ -60,27 +39,29 @@
 
 		public function get_category_attr($category_id = null, $attr_id = null){
 			$get_category_info = $this->get_category_info($category_id);
-			foreach($get_category_info->categoryAttributes as $attr){
-				if($attr->attribute->id == $attr_id){
-					return $attr;
+			if(isset($get_category_info->body->categoryAttributes)){
+				foreach($get_category_info->body->categoryAttributes as $attr){
+					if($attr->attribute->id == $attr_id){
+						return $attr;
+					}
 				}
 			}
-			return null;
+			return false;
 		}
 
 		public function get_product_parent_cat_list($barcode = null){
 			$product        = $this->product()->get_my_product($barcode);
-			$product_cat_id = $product->content[0]->pimCategoryId;
+			$product_cat_id = $product->body->content[0]->pimCategoryId;
 			$all_cat        = $this->get_categories();
-			return $this->find_parent_categories($all_cat->categories, $product_cat_id);
+			return $this->find_parent_categories($all_cat->body->categories, $product_cat_id);
 		}
 
 		public function search_category_attr_values($category_id = null, $attr_id = null, $search_text = null, $key = 'name'){
 			$all_values        = null;
 			$get_category_info = $this->get_category_info($category_id);
-			foreach($get_category_info->categoryAttributes as $a_id => $attr){
+			foreach($get_category_info->body->categoryAttributes as $a_id => $attr){
 				if($attr->attribute->id == $attr_id){
-					$attr_values   = $get_category_info->categoryAttributes[$a_id]->attributeValues;
+					$attr_values   = $get_category_info->body->categoryAttributes[$a_id]->attributeValues;
 					$search_result = $this->array_search_cat_in_attr_value($attr_values, $search_text, $key);
 					if($search_result != null){
 						$all_values = $search_result;

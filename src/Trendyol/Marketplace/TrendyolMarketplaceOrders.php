@@ -19,7 +19,7 @@
 		    return $this->trendyol->request;
 	    }
 
-        public function get_my_orders($filter = []){
+        public function get_my_orders($filter = null){
             $url = 'https://api.trendyol.com/sapigw/suppliers/'.$this->supplierId.'/orders';
 
             $required_query_data = [
@@ -34,11 +34,10 @@
                 'orderByDirection'   => 'DESC',
                 'shipmentPackageIds' => null,
             ];
-            $required_query_data = array_merge($required_query_data, $filter);
+            $required_query_data = array_merge($required_query_data, ($filter??[]));
             $new_url             = http_build_query($required_query_data);
 
-            $result = $this->request()->get($url.'?'.$new_url);
-            return $result;
+            return $this->request()->get($url.'?'.$new_url);
         }
 
     }

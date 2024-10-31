@@ -16,13 +16,11 @@
 			$this->trendyol   = $trendyol;
 		}
 
-		function request(){
+		private function request(){
 			return $this->trendyol->request;
 		}
 
 		public function get_my_products($filter = []){
-
-			//			$url = 'https://api.trendyol.com/sapigw/suppliers/'.$this->supplierId.'/products';
 			$url = $this->trendyol->request->api_url.'suppliers/'.$this->supplierId.'/products';
 
 			$required_query_data = [
@@ -38,9 +36,7 @@
 				$required_query_data = array_merge($required_query_data, $filter);
 			}
 			$new_url = http_build_query($required_query_data);
-			$result  = $this->request()->get($url.'?'.$new_url);
-
-			return $result;
+			return $this->request()->get($url.'?'.$new_url);
 		}
 
 		public function get_my_product($barcode = null){
@@ -51,7 +47,7 @@
 					'productMainId' => $barcode,
 				]);
 
-				if(isset($product_main_id_products->totalElements) and $product_main_id_products->totalElements > 0){
+				if(isset($product_main_id_products->status, $product_main_id_products->body) and $product_main_id_products->status == 'success' and $product_main_id_products->body->totalElements > 0){
 					return $product_main_id_products;
 				}
 
@@ -59,7 +55,7 @@
 					'barcode' => $barcode,
 				]);
 
-				if(isset($barcode_product->totalElements) and $barcode_product->totalElements > 0){
+				if(isset($barcode_product->status, $barcode_product->body) and $barcode_product->status == 'success' and $barcode_product->body->totalElements > 0){
 					return $barcode_product;
 				}
 
@@ -67,32 +63,22 @@
 					'stockCode' => $barcode,
 				]);
 
-				if(isset($stock_code_products->totalElements) and $stock_code_products->totalElements > 0){
+				if(isset($stock_code_products->status, $stock_code_products->body) and $stock_code_products->status == 'success' and $stock_code_products->body->totalElements > 0){
 					return $stock_code_products;
 				}
+
 			}
 
 			return false;
 		}
 
 		public function create_multi_product($data = []){
-			$url = $this->request()->api_url.'suppliers/'.$this->supplierId.'/v2/products';
-
+			$url                = $this->request()->api_url.'suppliers/'.$this->supplierId.'/v2/products';
 			$post_data['items'] = $data;
-
-			$product_result = $this->request()->post($url, $post_data);
-			if(isset($product_result->batchRequestId)){
-				$result = $this->get_batch_request_result($product_result->batchRequestId);
-			}
-			else{
-				$result = $product_result;
-			}
-
-			return $result;
+			return $this->request()->post($url, $post_data);
 		}
 
 		public function create_product($data = []){
-			$url = 'https://api.trendyol.com/sapigw/suppliers/'.$this->supplierId.'/v2/products';
 			$url = $this->request()->api_url.'suppliers/'.$this->supplierId.'/v2/products';
 
 			$post_data = [
@@ -124,19 +110,10 @@
 				],
 			];
 
-			$product_result = $this->request()->post($url, $post_data);
-			if(isset($product_result->batchRequestId)){
-				$result = $this->get_batch_request_result($product_result->batchRequestId);
-			}
-			else{
-				$result = $product_result;
-			}
-
-			return $result;
+			return $this->request()->post($url, $post_data);
 		}
 
 		public function update_product_info($barcode = null, $data = []){
-			$url = 'https://api.trendyol.com/sapigw/suppliers/'.$this->supplierId.'/v2/products';
 			$url = $this->request()->api_url.'suppliers/'.$this->supplierId.'/v2/products';
 
 			$post_data = [
@@ -150,7 +127,7 @@
 						'quantity'          => $data['quantity'] ?? null,
 						'stockCode'         => $data['stockCode'] ?? null,
 						'dimensionalWeight' => $data['dimensionalWeight'] ?? null,
-						'description'       => $data['description'] ?? '',
+						'description'       => $data['description'] ?? null,
 						'currencyType'      => $data['currencyType'] ?? 'TRY',
 						//                        'listPrice'          => $data['listPrice'] ?? null,
 						//                        'salePrice'          => $data['salePrice'] ?? null,
@@ -165,19 +142,10 @@
 				],
 			];
 
-			$product_result = $this->request()->put($url, $post_data);
-			if(isset($product_result->batchRequestId)){
-				$result = $this->get_batch_request_result($product_result->batchRequestId);
-			}
-			else{
-				$result = $product_result;
-			}
-
-			return $result;
+			return $this->request()->put($url, $post_data);
 		}
 
 		public function update_product_price_and_stock($barcode = null, $quantity = null, $sale_price = null, $list_price = null){
-			//			$url = 'https://api.trendyol.com/sapigw/suppliers/'.$this->supplierId.'/products/price-and-inventory';
 			$url = $this->request()->api_url.'suppliers/'.$this->supplierId.'/products/price-and-inventory';
 
 			$post_data = [
@@ -191,82 +159,71 @@
 				],
 			];
 
-			$product_result = $this->request()->post($url, $post_data);
-			$result         = $this->get_batch_request_result($product_result->batchRequestId);
-
-			return $result;
+			return $this->request()->post($url, $post_data);
 		}
 
 		public function get_batch_request_result($batch_id = null){
-			//			$url    = 'https://api.trendyol.com/sapigw/suppliers/'.$this->supplierId.'/products/batch-requests/'.$batch_id;
-			$url    = $this->request()->api_url.'suppliers/'.$this->supplierId.'/products/batch-requests/'.$batch_id;
-			$result = $this->request()->get($url);
-			return $result;
+			$url = $this->request()->api_url.'suppliers/'.$this->supplierId.'/products/batch-requests/'.$batch_id;
+			return $this->request()->get($url);
 		}
 
 		public function update_product_title($barcode = null, $new_title = null){
 			if($barcode != null and $new_title != null){
 				$get_my_product = $this->get_my_product($barcode);
-				if(isset($get_my_product->content)){
-					$product_info = json_decode(json_encode($get_my_product->content[0]), true);
-					foreach($product_info['attributes'] as $id => $attribute){
-						$product_info['attributes'][$id]['customAttributeValue'] = $attribute['attributeValue'];
+				if(isset($get_my_product->status, $get_my_product->body) and $get_my_product->status == 'success' and $get_my_product->body->totalElements > 0){
+					$product_info = $get_my_product->body->content[0];
+					foreach($product_info->attributes as $id => $attribute){
+						$product_info->attributes[$id]->customAttributeValue = $attribute->attributeValue;
 					}
-					$product_info['title'] = $new_title;
-					$update_product        = $this->update_product_info($barcode, $product_info);
-					return $update_product;
+					$product_info->title = $new_title;
+					return $this->update_product_info($barcode, (array) $product_info);
 				}
 			}
-
 			return false;
 		}
 
 		public function update_product_description($barcode = null, $new_desc = null){
 			if($barcode != null and $new_desc != null){
 				$get_my_product = $this->get_my_product($barcode);
-				if(isset($get_my_product->content)){
-					$product_info = json_decode(json_encode($get_my_product->content[0]), true);
-					foreach($product_info['attributes'] as $id => $attribute){
-						$product_info['attributes'][$id]['customAttributeValue'] = $attribute['attributeValue'];
+				if(isset($get_my_product->status, $get_my_product->body) and $get_my_product->status == 'success' and $get_my_product->body->totalElements > 0){
+					$product_info = $get_my_product->body->content[0];
+					foreach($product_info->attributes as $id => $attribute){
+						$product_info->attributes[$id]->customAttributeValue = $attribute->attributeValue;
 					}
-					$product_info['description'] = $new_desc;
-					$update_product              = $this->update_product_info($barcode, $product_info);
-					return $update_product;
+					$product_info->description = $new_desc;
+					return $this->update_product_info($barcode, (array) $product_info);
 				}
 			}
+			return false;
 		}
 
 		public function update_product_brand($barcode = null, $brand_id = null){
 			if($barcode != null and $brand_id != null){
 				$get_my_product = $this->get_my_product($barcode);
-				if(isset($get_my_product->content)){
-					$product_info = json_decode(json_encode($get_my_product->content[0]), true);
-					foreach($product_info['attributes'] as $id => $attribute){
-						$product_info['attributes'][$id]['customAttributeValue'] = $attribute['attributeValue'];
+				if(isset($get_my_product->status, $get_my_product->body) and $get_my_product->status == 'success' and $get_my_product->body->totalElements > 0){
+					$product_info = $get_my_product->body->content[0];
+					foreach($product_info->attributes as $id => $attribute){
+						$product_info->attributes[$id]->customAttributeValue = $attribute->attributeValue;
 					}
-					$product_info['brandId'] = $brand_id;
-					$update_product          = $this->update_product_info($barcode, $product_info);
-					return $update_product;
+					$product_info->brandId = $brand_id;
+					return $this->update_product_info($barcode, (array) $product_info);
 				}
 			}
-
 			return false;
 		}
 
 		public function update_product_images($barcode = null, $images = null){
 			if($barcode != null and $images != null){
 				$get_my_product = $this->get_my_product($barcode);
-				if(isset($get_my_product->content)){
-					$product_info = json_decode(json_encode($get_my_product->content[0]), true);
-					foreach($product_info['attributes'] as $id => $attribute){
-						$product_info['attributes'][$id]['customAttributeValue'] = $attribute['attributeValue'];
+				if(isset($get_my_product->status, $get_my_product->body) and $get_my_product->status == 'success' and $get_my_product->body->totalElements > 0){
+					$product_info = $get_my_product->body->content[0];
+					foreach($product_info->attributes as $id => $attribute){
+						$product_info->attributes[$id]->customAttributeValue = $attribute->attributeValue;
 					}
-					$product_info['images'] = $images;
-					$update_product         = $this->update_product_info($barcode, $product_info);
-					return $update_product;
+					$product_info->images = $images;
+					return $this->update_product_info($barcode, (array) $product_info);
 				}
 			}
-
 			return false;
 		}
 
@@ -274,6 +231,7 @@
 
 			if($barcode != null){
 				$product_info = $this->get_my_product($barcode);
+				print_r($product_info);
 				if(isset($product_info->content[0])){
 					$product_content_id = $product_info->content[0]->productContentId;
 
@@ -288,18 +246,14 @@
 						'page'              => $page,
 						'channelId'         => 1,
 						'size'              => 1,
+						'contentId'         => $product_content_id,
 					]);
 
-					$url  = 'https://public-mdc.trendyol.com/discovery-web-socialgw-service/api/review/'.$product_content_id.'?'.$url_params;
-					$body = $this->request()->get($url);
-
-					if(isset($body->result) and $body->result != null){
-						return $body;
-					}
+					$url = 'https://apigw.trendyol.com/discovery-web-websfxsocialreviewrating-santral/product-reviews-detailed?'.$url_params;
+					return $this->request()->get($url);
 				}
 			}
 
 			return false;
 		}
-
 	}

@@ -40,22 +40,33 @@
 
 			curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
 
-			$headers   = $headers ?? [];
-			$headers[] = 'User-Agent: '.$this->userAgent();
+			$headers = $headers ?? [];
 
 			if($authorization){
 				$headers[] = 'Authorization: Basic '.$this->authorization();
+				$headers[] = 'User-Agent: '.$this->userAgent();
 			}
 
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-			$result = curl_exec($ch);
+			$result   = curl_exec($ch);
+			$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-			if(empty($result)){
-				throw new Exception("Trendyol API'sine bağlanılamıyor.");
+			if(curl_errno($ch)){
+				throw new Exception("cURL Hatası: ".curl_error($ch));
 			}
 
-			$result = json_decode($result);
+			if(empty($result) and $httpcode != 200){
+				throw new Exception("Trendyol API'sine bağlanılamıyor. HTTP Kodu: $httpcode");
+			}
+
+			$results = json_encode([
+				'http_code' => $httpcode,
+				'status'    => $httpcode == 200 ? 'success' : 'fail',
+				'body'      => json_decode($result),
+			]);
+
+			$result = json_decode($results);
 			curl_close($ch);
 			return $result;
 
@@ -89,11 +100,21 @@
 			$result   = curl_exec($ch);
 			$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-			if(empty($result)){
-				throw new Exception("Trendyol API'sine bağlanılamıyor.");
+			if(curl_errno($ch)){
+				throw new Exception("cURL Hatası: ".curl_error($ch));
 			}
 
-			$result = json_decode($result);
+			if(empty($result) and $httpcode != 200){
+				throw new Exception("Trendyol API'sine bağlanılamıyor. HTTP Kodu: $httpcode");
+			}
+
+			$results = json_encode([
+				'http_code' => $httpcode,
+				'status'    => $httpcode == 200 ? 'success' : 'fail',
+				'body'      => json_decode($result),
+			]);
+
+			$result = json_decode($results);
 			curl_close($ch);
 			return $result;
 
@@ -140,7 +161,7 @@
 			$results = json_encode([
 				'http_code' => $httpcode,
 				'status'    => $httpcode == 200 ? 'success' : 'fail',
-				'result'    => $result,
+				'body'      => json_decode($result),
 			]);
 
 			$result = json_decode($results);
@@ -190,7 +211,7 @@
 			$results = json_encode([
 				'http_code' => $httpcode,
 				'status'    => $httpcode == 200 ? 'success' : 'fail',
-				'result'    => $result,
+				'body'      => json_decode($result),
 			]);
 
 			$result = json_decode($results);

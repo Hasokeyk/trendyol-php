@@ -10,7 +10,7 @@
 			$this->trendyol = $trendyol;
 		}
 
-		function request(){
+		private function request(){
 			return $this->trendyol->request;
 		}
 

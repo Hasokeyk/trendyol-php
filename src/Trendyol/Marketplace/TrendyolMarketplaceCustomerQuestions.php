@@ -61,8 +61,9 @@
 
 			if($barcode != null){
 				$product_info = $this->product()->get_my_product($barcode);
-				if(isset($product_info->content[0])){
-					$product_content_id = $product_info->content[0]->productContentId;
+				if(isset($product_info->body->content[0])){
+
+					$product_content_id = $product_info->body->content[0]->productContentId??$product_info->body->content[0]->platformListingId;
 
 					$url_params = http_build_query([
 						'sellerId'  => $this->supplierId,
@@ -72,8 +73,7 @@
 					]);
 
 					$url  = 'https://apigw.trendyol.com/discovery-web-websfxsocialreviewrating-santral/product-reviews-detailed?'.$url_params;
-					$body = $this->request()->get($url);
-					return $body;
+					return $this->request()->get($url);
 				}
 			}
 
