@@ -4,9 +4,9 @@
 
 	class TrendyolMarketplaceCustomerQuestions{
 
-		public $supplierId;
-		public $username;
-		public $password;
+		public  $supplierId;
+		public  $username;
+		public  $password;
 		private $trendyol;
 
 		function __construct($trendyol){
@@ -34,7 +34,7 @@
 				'supplierId'         => $this->supplierId,
 				'endDate'            => null,
 				'startDate'          => null,
-				'status'             => 'WAITING_FOR_ANSWER',
+				'status'             => 'ANSWERED',
 				'orderByField'       => 'CreatedDate',
 				'orderByDirection'   => 'DESC',
 				'shipmentPackageIds' => null,
@@ -65,15 +65,13 @@
 					$product_content_id = $product_info->content[0]->productContentId;
 
 					$url_params = http_build_query([
-						'page'           => 0,
-						'storefrontId'   => 1,
-						'culture'        => 'tr-TR',
-						'contentId'      => $product_content_id,
-						'fulfilmentType' => 'MP,ST,FT',
-						'channelId'      => 1,
+						'sellerId'  => $this->supplierId,
+						'contentId' => $product_content_id,
+						'pageSize'  => 10,
+						'channelId' => 1,
 					]);
 
-					$url  = 'https://public-mdc.trendyol.com/discovery-web-socialgw-service/api/questions/answered/filter?'.$url_params;
+					$url  = 'https://apigw.trendyol.com/discovery-web-websfxsocialreviewrating-santral/product-reviews-detailed?'.$url_params;
 					$body = $this->request()->get($url);
 					return $body;
 				}

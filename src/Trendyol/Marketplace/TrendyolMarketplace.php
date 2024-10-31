@@ -44,4 +44,8 @@
 			return new TrendyolMarketplaceCustomerQuestions($this->trendyol);
 		}
 
+		public function TrendyolMarketplaceWebhook(): TrendyolMarketplaceWebhook{
+			return new TrendyolMarketplaceWebhook($this->trendyol);
+		}
+
 	}
