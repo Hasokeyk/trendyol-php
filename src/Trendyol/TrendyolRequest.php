@@ -19,10 +19,10 @@
 			$this->password   = $trendyol->password;
 
 			if($trendyol->test){
-				$this->api_url = 'https://stageapi.trendyol.com/stagesapigw/';
+				$this->api_url = 'https://stageapigw.trendyol.com/integration/';
 			}
 			else{
-				$this->api_url = 'https://api.trendyol.com/sapigw/';
+				$this->api_url = 'https://apigw.trendyol.com/integration/';
 			}
 
 		}

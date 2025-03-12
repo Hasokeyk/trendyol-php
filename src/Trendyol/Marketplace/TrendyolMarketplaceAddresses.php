@@ -20,7 +20,7 @@
 	    }
 
         public function get_my_addresses(){
-            $url    = 'https://api.trendyol.com/sapigw/suppliers/'.$this->supplierId.'/addresses';
+            $url = "https://apigw.trendyol.com/integration/sellers/{$this->supplierId}/addresses";
             $result = $this->request()->get($url);
             return $result;
         }
