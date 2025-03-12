@@ -21,7 +21,7 @@
 		}
 
 		public function get_my_webhooks(){
-			$url    = 'https://apigw.trendyol.com/integrator/webhook/sellers/'.$this->supplierId.'/webhooks';
+			$url = "https://apigw.trendyol.com/integration/webhook/sellers/{$this->supplierId}/webhooks";
 			$result = $this->request()->get($url);
 			return $result;
 		}
@@ -30,7 +30,7 @@
 
 			if($webhook_url != null){
 
-				$url = 'https://apigw.trendyol.com/integrator/webhook/sellers/'.$this->supplierId.'/webhooks';
+				$url = "https://apigw.trendyol.com/integration/webhook/sellers/{$this->supplierId}/webhooks";
 
 				$post_data = [
 					'url'      => $webhook_url,
@@ -50,7 +50,7 @@
 
 			if($webhook_id != null and $new_webhook_url != null){
 
-				$url = 'https://apigw.trendyol.com/integrator/webhook/sellers/'.$this->supplierId.'/webhooks/'.$webhook_id;
+				$url = "https://apigw.trendyol.com/integration/webhook/sellers/{$this->supplierId}/webhooks/{$webhook_id}";
 
 				$post_data = [
 					'url'      => $new_webhook_url,
@@ -69,7 +69,7 @@
 		public function del_webhook($webhook_id = null, $new_webhook_url = null){
 
 			if($webhook_id != null and $new_webhook_url != null){
-				$url    = 'https://apigw.trendyol.com/integrator/webhook/sellers/'.$this->supplierId.'/webhooks/'.$webhook_id;
+				$url = "https://apigw.trendyol.com/integration/webhook/sellers/{$this->supplierId}/webhooks/{$webhook_id}";
 				$result = $this->request()->delete($url);
 				return $result;
 			}

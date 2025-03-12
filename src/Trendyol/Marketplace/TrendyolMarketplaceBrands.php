@@ -21,13 +21,13 @@
         }
 
         public function get_brands(){
-            $url = 'https://api.trendyol.com/sapigw/brands';
+            $url = 'https://apigw.trendyol.com/integration/product/brands';
             $result = $this->request()->get($url);
             return $result;
         }
 
         public function search_brand($brand_name = null){
-            $url    = 'https://api.trendyol.com/sapigw/brands/by-name?name='.$brand_name;
+            $url    = "https://apigw.trendyol.com/integration/product/brands/by-name?name={$brand_name}";
             $result = $this->request()->get($url);
             return $result;
         }

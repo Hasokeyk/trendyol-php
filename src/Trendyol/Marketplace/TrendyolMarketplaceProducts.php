@@ -21,7 +21,7 @@
 		}
 
 		public function get_my_products($filter = []){
-			$url = $this->trendyol->request->api_url.'suppliers/'.$this->supplierId.'/products';
+			$url = $this->trendyol->request->api_url."product/sellers/{$this->supplierId}/products";
 
 			$required_query_data = [
 				'barcode'       => null,
@@ -73,13 +73,13 @@
 		}
 
 		public function create_multi_product($data = []){
-			$url                = $this->request()->api_url.'suppliers/'.$this->supplierId.'/v2/products';
+			$url                = $this->request()->api_url."product/sellers/{$this->supplierId}/products";
 			$post_data['items'] = $data;
 			return $this->request()->post($url, $post_data);
 		}
 
 		public function create_product($data = []){
-			$url = $this->request()->api_url.'suppliers/'.$this->supplierId.'/v2/products';
+			$url = $this->request()->api_url."product/sellers/{$this->supplierId}/products";
 
 			$post_data = [
 				'items' => [
@@ -114,7 +114,7 @@
 		}
 
 		public function update_product_info($barcode = null, $data = []){
-			$url = $this->request()->api_url.'suppliers/'.$this->supplierId.'/v2/products';
+			$url = $this->request()->api_url."product/sellers/{$this->supplierId}/products";
 
 			$post_data = [
 				'items' => [
@@ -146,7 +146,7 @@
 		}
 
 		public function update_product_price_and_stock($barcode = null, $quantity = null, $sale_price = null, $list_price = null){
-			$url = $this->request()->api_url.'suppliers/'.$this->supplierId.'/products/price-and-inventory';
+			$url = $this->request()->api_url."inventory/sellers/{$this->supplierId}/products/price-and-inventory";
 
 			$post_data = [
 				'items' => [
@@ -163,7 +163,7 @@
 		}
 
 		public function get_batch_request_result($batch_id = null){
-			$url = $this->request()->api_url.'suppliers/'.$this->supplierId.'/products/batch-requests/'.$batch_id;
+			$url = $this->request()->api_url."product/sellers/{$this->supplierId}/products/batch-requests/{$batch_id}";
 			return $this->request()->get($url);
 		}
 
