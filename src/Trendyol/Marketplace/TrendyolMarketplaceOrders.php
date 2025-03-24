@@ -20,7 +20,7 @@
 	    }
 
         public function get_my_orders($filter = null){
-            $url = 'https://api.trendyol.com/sapigw/suppliers/'.$this->supplierId.'/orders';
+            $url = 'https://apigw.trendyol.com/integration/order/sellers/'.$this->supplierId.'/orders';
 
             $required_query_data = [
                 'startDate'          => null,

@@ -25,14 +25,14 @@
 		}
 
 		public function get_categories(){
-			$url    = 'https://api.trendyol.com/sapigw/product-categories';
+			$url    = 'https://apigw.trendyol.com/integration/product/product-categories';
 			$result = $this->request()->get($url);
 			return $result;
 		}
 
 
 		public function get_category_info($category_id = null){
-			$url    = 'https://api.trendyol.com/sapigw/product-categories/'.$category_id.'/attributes';
+			$url    = 'https://apigw.trendyol.com/integration/product/product-categories/'.$category_id.'/attributes';
 			$result = $this->request()->get($url);
 			return $result;
 		}

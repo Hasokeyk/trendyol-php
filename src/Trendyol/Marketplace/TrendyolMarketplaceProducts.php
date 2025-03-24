@@ -21,7 +21,7 @@
 		}
 
 		public function get_my_products($filter = []){
-			$url = $this->trendyol->request->api_url.'suppliers/'.$this->supplierId.'/products';
+			$url = 'https://apigw.trendyol.com/integration/product/sellers/'.($this->supplierId).'/products';
 
 			$required_query_data = [
 				'barcode'       => null,
@@ -35,6 +35,7 @@
 			if(is_array($filter)){
 				$required_query_data = array_merge($required_query_data, $filter);
 			}
+
 			$new_url = http_build_query($required_query_data);
 			return $this->request()->get($url.'?'.$new_url);
 		}
@@ -73,13 +74,13 @@
 		}
 
 		public function create_multi_product($data = []){
-			$url                = $this->request()->api_url.'suppliers/'.$this->supplierId.'/v2/products';
+			$url                = 'https://apigw.trendyol.com/integration/product/sellers/'.$this->supplierId.'/products';
 			$post_data['items'] = $data;
 			return $this->request()->post($url, $post_data);
 		}
 
 		public function create_product($data = []){
-			$url = $this->request()->api_url.'suppliers/'.$this->supplierId.'/v2/products';
+			$url = 'https://apigw.trendyol.com/integration/product/sellers/'.$this->supplierId.'/products';
 
 			$post_data = [
 				'items' => [
@@ -114,7 +115,7 @@
 		}
 
 		public function update_product_info($barcode = null, $data = []){
-			$url = $this->request()->api_url.'suppliers/'.$this->supplierId.'/v2/products';
+			$url = 'https://apigw.trendyol.com/integration/product/sellers/'.$this->supplierId.'/products';
 
 			$post_data = [
 				'items' => [
@@ -146,7 +147,7 @@
 		}
 
 		public function update_product_price_and_stock($barcode = null, $quantity = null, $sale_price = null, $list_price = null){
-			$url = $this->request()->api_url.'suppliers/'.$this->supplierId.'/products/price-and-inventory';
+			$url = 'https://apigw.trendyol.com/integration/inventory/sellers/'.$this->supplierId.'/products/price-and-inventory';
 
 			$post_data = [
 				'items' => [
@@ -163,7 +164,7 @@
 		}
 
 		public function get_batch_request_result($batch_id = null){
-			$url = $this->request()->api_url.'suppliers/'.$this->supplierId.'/products/batch-requests/'.$batch_id;
+			$url = 'https://apigw.trendyol.com/integration/product/sellers/'.$this->supplierId.'/products/batch-requests/'.$batch_id;
 			return $this->request()->get($url);
 		}
 
@@ -176,7 +177,7 @@
 						$product_info->attributes[$id]->customAttributeValue = $attribute->attributeValue;
 					}
 					$product_info->title = $new_title;
-					return $this->update_product_info($barcode, (array) $product_info);
+					return $this->update_product_info($barcode, (array)$product_info);
 				}
 			}
 			return false;
@@ -191,7 +192,7 @@
 						$product_info->attributes[$id]->customAttributeValue = $attribute->attributeValue;
 					}
 					$product_info->description = $new_desc;
-					return $this->update_product_info($barcode, (array) $product_info);
+					return $this->update_product_info($barcode, (array)$product_info);
 				}
 			}
 			return false;
@@ -206,7 +207,7 @@
 						$product_info->attributes[$id]->customAttributeValue = $attribute->attributeValue;
 					}
 					$product_info->brandId = $brand_id;
-					return $this->update_product_info($barcode, (array) $product_info);
+					return $this->update_product_info($barcode, (array)$product_info);
 				}
 			}
 			return false;
@@ -221,36 +222,51 @@
 						$product_info->attributes[$id]->customAttributeValue = $attribute->attributeValue;
 					}
 					$product_info->images = $images;
-					return $this->update_product_info($barcode, (array) $product_info);
+					return $this->update_product_info($barcode, (array)$product_info);
 				}
 			}
 			return false;
 		}
 
-		public function get_product_comment($barcode = null, $page = 0, $rating = null, $only_seller_reviews = false, $order_number = 1){
+		public function get_product_comment($barcode, $page = 0, $rating = null, $only_seller_reviews = false, $order_number = 1){
 
 			if($barcode != null){
 				$product_info = $this->get_my_product($barcode);
-				print_r($product_info);
-				if(isset($product_info->content[0])){
-					$product_content_id = $product_info->content[0]->productContentId;
+				if(isset($product_info->body->content[0])){
+					$product_content_id = $product_info->body->content[0]->productContentId ?? 0;
+
+					//$url_params = http_build_query([
+					//	'merchantId'        => $this->supplierId,
+					//	'storefrontId'      => 1,
+					//	'culture'           => 'tr-TR',
+					//	'order'             => $order_number, //SIRALAMA 5 -> ÖNERİLEN  | 2 -> ESKİDEN YENİDE | 1 -> YENİDEN ESKİYE
+					//	'searchValue'       => '',
+					//	'onlySellerReviews' => $only_seller_reviews, //SADECE BU SATICI
+					//	'ratingValues'      => $rating,
+					//	'page'              => $page,
+					//	'channelId'         => 1,
+					//	'size'              => 1,
+					//	'contentId'         => $product_content_id,
+					//]);
+
+					$headers = [
+						'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+						'Accept-Language: en-US,en;q=0.5',
+						'Accept-Encoding: deflate, b, php, html, txt',
+						'Connection: keep-alive',
+						'Upgrade-Insecure-Requests: 1'
+					];
 
 					$url_params = http_build_query([
-						'merchantId'        => $this->supplierId,
-						'storefrontId'      => 1,
-						'culture'           => 'tr-TR',
-						'order'             => $order_number, //SIRALAMA 5 -> ÖNERİLEN  | 2 -> ESKİDEN YENİDE | 1 -> YENİDEN ESKİYE
-						'searchValue'       => '',
-						'onlySellerReviews' => $only_seller_reviews, //SADECE BU SATICI
-						'ratingValues'      => $rating,
-						'page'              => $page,
-						'channelId'         => 1,
-						'size'              => 1,
-						'contentId'         => $product_content_id,
+						'sellerId'  => $this->supplierId,
+						'contentId' => $product_content_id,
+						'order'     => 'DESC',
+						'orderBy'   => 'LastModifiedDate',
+						'channelId' => 1
 					]);
-
-					$url = 'https://apigw.trendyol.com/discovery-web-websfxsocialreviewrating-santral/product-reviews-detailed?'.$url_params;
-					return $this->request()->get($url);
+					$url        = 'https://apigw.trendyol.com/discovery-web-websfxsocialreviewrating-santral/product-reviews-detailed?'.$url_params;
+					$url        = 'https://apigw.trendyol.com/discovery-web-websfxsocialreviewrating-santral/product-reviews-detailed?&sellerId=892626&contentId=865082033&order=ASC&orderBy=LastModifiedDate&channelId=1';
+					return $this->request()->get($url, $headers, false);
 				}
 			}
 

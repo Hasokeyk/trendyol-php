@@ -26,7 +26,7 @@
 
 		public function get_my_customer_questions($filter){
 
-			$url                 = 'https://api.trendyol.com/sapigw/suppliers/'.$this->supplierId.'/questions/filter';
+			$url                 = 'https://apigw.trendyol.com/integration/qna/sellers/'.$this->supplierId.'/questions/filter';
 			$required_query_data = [
 				'barcode'            => null,
 				'page'               => null,
@@ -34,7 +34,7 @@
 				'supplierId'         => $this->supplierId,
 				'endDate'            => null,
 				'startDate'          => null,
-				'status'             => 'ANSWERED',
+				//'status'             => 'ANSWERED',
 				'orderByField'       => 'CreatedDate',
 				'orderByDirection'   => 'DESC',
 				'shipmentPackageIds' => null,
@@ -47,7 +47,7 @@
 		}
 
 		public function answer_customer_question($question_id = null, $answer = null){
-			$url = 'https://api.trendyol.com/sapigw/suppliers/'.$this->supplierId.'/questions/'.$question_id.'/answers';
+			$url = 'https://apigw.trendyol.com/integration/qna/sellers/'.$this->supplierId.'/questions/'.$question_id.'/answers';
 
 			$post_data = [
 				'text' => $answer,
@@ -72,7 +72,7 @@
 						'channelId' => 1,
 					]);
 
-					$url  = 'https://apigw.trendyol.com/discovery-web-websfxsocialreviewrating-santral/product-reviews-detailed?'.$url_params;
+					$url  = 'https://apigw.trendyol.com/discovery-web-socialgw-service/api/questions/answered/filter?'.$url_params;
 					return $this->request()->get($url);
 				}
 			}
