@@ -11,29 +11,16 @@
 		public $password;
 		public $cache_path;
 		public $cache_time = 1440; //Minute
-		public $api_url;
 
 		function __construct($trendyol){
-
 			$this->supplierId = $trendyol->supplierId;
 			$this->username   = $trendyol->username;
 			$this->password   = $trendyol->password;
-
-			if($trendyol->test){
-				$this->api_url = 'https://stageapi.trendyol.com/stagesapigw/';
-			}
-			else{
-				$this->api_url = 'https://apigw.trendyol.com/integration/';
-			}
-
 		}
 
 		public function get($url, $headers = null, $authorization = true){
 
 			$ch = curl_init();
-
-			preg_match("/\/\/(.*?)\//",$url,$filesave);
-			$cookie_file = __DIR__ . "/cache/".$_SERVER['REMOTE_ADDR'].".$filesave[1].slow.txt";
 
 			curl_setopt($ch, CURLOPT_URL, $url);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -43,9 +30,6 @@
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
 			curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
-			//curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie_file);
-			curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie_file);
-			//curl_setopt($ch, CURLOPT_COOKIE, $cookie_file);
 
 			$headers = $headers ?? [];
 
@@ -53,7 +37,7 @@
 				$headers[] = 'Authorization: Basic '.$this->authorization();
 				$headers[] = 'User-Agent: '.$this->userAgent();
 			}
-			$headers[] = 'Content-Type: application/json';
+			//$headers[] = 'Content-Type: application/json';
 
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 

@@ -1,5 +1,7 @@
 <?php
 
+	//Version : 1.0.32
+
 	namespace Hasokeyk\Trendyol;
 
 	use Hasokeyk\Trendyol\Marketplace\TrendyolMarketplace;
