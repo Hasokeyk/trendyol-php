@@ -235,20 +235,6 @@
 				if(isset($product_info->body->content[0])){
 					$product_content_id = $product_info->body->content[0]->productContentId ?? 0;
 
-					//$url_params = http_build_query([
-					//	'merchantId'        => $this->supplierId,
-					//	'storefrontId'      => 1,
-					//	'culture'           => 'tr-TR',
-					//	'order'             => $order_number, //SIRALAMA 5 -> ÖNERİLEN  | 2 -> ESKİDEN YENİDE | 1 -> YENİDEN ESKİYE
-					//	'searchValue'       => '',
-					//	'onlySellerReviews' => $only_seller_reviews, //SADECE BU SATICI
-					//	'ratingValues'      => $rating,
-					//	'page'              => $page,
-					//	'channelId'         => 1,
-					//	'size'              => 1,
-					//	'contentId'         => $product_content_id,
-					//]);
-
 					$headers = [
 						'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
 						'Accept-Language: en-US,en;q=0.5',
@@ -258,15 +244,18 @@
 					];
 
 					$url_params = http_build_query([
-						'sellerId'  => $this->supplierId,
-						'contentId' => $product_content_id,
-						'order'     => 'DESC',
-						'orderBy'   => 'LastModifiedDate',
-						'channelId' => 1
+						'merchantId' => $this->supplierId,
+						'logged-in'  => false,
+						'isBuyer'    => false,
+						'contentId'  => $product_content_id,
+
 					]);
-					$url        = 'https://apigw.trendyol.com/discovery-web-websfxsocialreviewrating-santral/product-reviews-detailed?'.$url_params;
-					$url        = 'https://apigw.trendyol.com/discovery-web-websfxsocialreviewrating-santral/product-reviews-detailed?&sellerId=892626&contentId=865082033&order=ASC&orderBy=LastModifiedDate&channelId=1';
-					return $this->request()->get($url, $headers, false);
+					$url        = 'https://apigw.trendyol.com/discovery-web-socialgw-service/reviews/heiluna/urun-p-'.$product_content_id.'/yorumlar?'.$url_params;
+					$body       = $this->request()->get($url, $headers, false);
+					preg_match('/{(.*?)};/ius', $body->body->result->hydrateScript, $matches);
+					$json   = json_decode(rtrim($matches[0], ';'));
+					$result = json_encode(['result' => $json->ratingAndReviewResponse->ratingAndReview ?? []]);
+					return json_decode($result);
 				}
 			}
 

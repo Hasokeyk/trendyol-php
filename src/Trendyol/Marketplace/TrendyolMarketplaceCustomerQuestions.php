@@ -24,7 +24,7 @@
 			return new TrendyolMarketplaceProducts($this->trendyol);
 		}
 
-		public function get_my_customer_questions($filter){
+		public function get_my_customer_questions($filter = []){
 
 			$url                 = 'https://apigw.trendyol.com/integration/qna/sellers/'.$this->supplierId.'/questions/filter';
 			$required_query_data = [
@@ -57,7 +57,7 @@
 			return $result;
 		}
 
-		public function get_product_question_web($barcode = null){
+		public function get_product_question_web($barcode){
 
 			if($barcode != null){
 				$product_info = $this->product()->get_my_product($barcode);
