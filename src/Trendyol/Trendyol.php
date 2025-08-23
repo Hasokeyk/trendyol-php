@@ -1,38 +1,39 @@
 <?php
-
+	
 	//Version : 1.0.32
-
+	
 	namespace Hasokeyk\Trendyol;
-
+	
 	use Hasokeyk\Trendyol\Marketplace\TrendyolMarketplace;
-
+	
 	class Trendyol{
-
+		
 		public $supplierId;
 		public $username;
 		public $password;
+		public $store_front_code;
 		public $test;
-
+		
 		public TrendyolMarketplace $marketplace;
-		public TrendyolRequest $request;
-
-		function __construct($supplierId = null, $username = null, $password = null, $test = false){
-
-			$this->supplierId = $supplierId;
-			$this->username   = $username;
-			$this->password   = $password;
-			$this->test       = $test;
-
+		public TrendyolRequest     $request;
+		
+		function __construct($supplierId = null, $username = null, $password = null, $store_front_code = 'TR', $test = false){
+			$this->supplierId       = $supplierId;
+			$this->username         = $username;
+			$this->password         = $password;
+			$this->store_front_code = $store_front_code;
+			$this->test             = $test;
+			
 			$this->request     = $this->TrendyolRequest();
 			$this->marketplace = $this->TrendyolMarketplace();
 		}
-
-		public function TrendyolMarketplace(): TrendyolMarketplace{
+		
+		public function TrendyolMarketplace():TrendyolMarketplace{
 			return new TrendyolMarketplace($this);
 		}
-
-		public function TrendyolRequest(): TrendyolRequest{
+		
+		public function TrendyolRequest():TrendyolRequest{
 			return new TrendyolRequest($this);
 		}
-
+		
 	}

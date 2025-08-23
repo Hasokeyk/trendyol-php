@@ -26,16 +26,19 @@
 			return $result;
 		}
 
-		public function create_webhook($webhook_url = null, $username = null, $password = null){
+		public function create_webhook($webhook_url = null, $subscribed_list = ['CREATED', 'PICKING', 'SHIPPED', 'CANCELLED', 'DELIVERED', 'RETURNED'], $username = null, $password = null){
 
 			if($webhook_url != null){
 
 				$url = 'https://apigw.trendyol.com/integration/webhook/sellers/'.$this->supplierId.'/webhooks';
 
 				$post_data = [
-					'url'      => $webhook_url,
-					'username' => $username ?? $this->username,
-					'password' => $password ?? $this->password
+					'url'                => $webhook_url,
+					'username'           => $username ?? $this->username,
+					'password'           => $password ?? $this->password,
+					'authenticationType' => 'BASIC_AUTHENTICATION',
+					//'apiKey'             => null,
+					'subscribedStatuses' => $subscribed_list
 				];
 
 				$result = $this->request()->post($url, $post_data);
@@ -66,12 +69,11 @@
 			return false;
 		}
 
-		public function del_webhook($webhook_id = null, $new_webhook_url = null){
+		public function del_webhook($webhook_id = null){
 
-			if($webhook_id != null and $new_webhook_url != null){
-				$url    = 'https://apigw.trendyol.com/integration/webhook/sellers/'.$this->supplierId.'/webhooks/'.$webhook_id;
-				$result = $this->request()->delete($url);
-				return $result;
+			if($webhook_id != null){
+				$url = 'https://apigw.trendyol.com/integration/webhook/sellers/'.$this->supplierId.'/webhooks/'.$webhook_id;
+				return $this->request()->delete($url);
 			}
 
 			return false;

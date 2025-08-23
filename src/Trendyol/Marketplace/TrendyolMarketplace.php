@@ -4,9 +4,9 @@
 
 	class TrendyolMarketplace{
 
-		public $supplierId;
-		public $username;
-		public $password;
+		public  $supplierId;
+		public  $username;
+		public  $password;
 		private $trendyol;
 
 		function __construct($trendyol){
@@ -46,6 +46,10 @@
 
 		public function TrendyolMarketplaceWebhook(): TrendyolMarketplaceWebhook{
 			return new TrendyolMarketplaceWebhook($this->trendyol);
+		}
+
+		public function TrendyolMarketplaceStore(): TrendyolMarketplaceStore{
+			return new TrendyolMarketplaceStore($this->trendyol);
 		}
 
 	}

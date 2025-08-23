@@ -6,9 +6,10 @@
 
     class TrendyolMarketplaceBrands{
 
-        public $supplierId;
-        public $username;
-        public $password;
+	    public $supplierId;
+	    public $username;
+	    public $password;
+	    public $trendyol;
 
         function __construct($supplierId = null, $username = null, $password = null){
             $this->supplierId = $supplierId;

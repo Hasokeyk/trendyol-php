@@ -4,9 +4,10 @@
 
     class TrendyolMarketplaceOrders{
 
-        public $supplierId;
-        public $username;
-        public $password;
+	    public $supplierId;
+	    public $username;
+	    public $password;
+	    public $trendyol;
 
 	    function __construct($trendyol){
 		    $this->supplierId = $trendyol->supplierId;
