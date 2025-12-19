@@ -20,16 +20,16 @@
 			return $this->trendyol->request;
 		}
 
-		public function get_my_products($filter = []){
+		public function get_my_products($filter = null){
 			$url = 'https://apigw.trendyol.com/integration/product/sellers/'.($this->supplierId).'/products';
 
 			$required_query_data = [
-				'barcode'       => null,
+				//'barcode'       => null,
 				'startDate'     => null,
 				'endDate'       => null,
 				'page'          => 0,
 				'dateQueryType' => null,
-				'size'          => 1000,
+				'size'          => 50,
 				'supplierId'    => $this->supplierId,
 			];
 			if(is_array($filter)){
@@ -37,13 +37,12 @@
 			}
 
 			$new_url = http_build_query($required_query_data);
+
 			return $this->request()->get($url.'?'.$new_url);
 		}
 
 		public function get_my_product($barcode = null){
-
 			if($barcode != null){
-
 				$product_main_id_products = $this->get_my_products([
 					'productMainId' => $barcode,
 				]);
@@ -67,7 +66,6 @@
 				if(isset($stock_code_products->status, $stock_code_products->body) and $stock_code_products->status == 'success' and $stock_code_products->body->totalElements > 0){
 					return $stock_code_products;
 				}
-
 			}
 
 			return false;
@@ -76,6 +74,7 @@
 		public function create_multi_product($data = []){
 			$url                = 'https://apigw.trendyol.com/integration/product/sellers/'.$this->supplierId.'/products';
 			$post_data['items'] = $data;
+
 			return $this->request()->post($url, $post_data);
 		}
 
@@ -165,6 +164,7 @@
 
 		public function get_batch_request_result($batch_id = null){
 			$url = 'https://apigw.trendyol.com/integration/product/sellers/'.$this->supplierId.'/products/batch-requests/'.$batch_id;
+
 			return $this->request()->get($url);
 		}
 
@@ -177,9 +177,11 @@
 						$product_info->attributes[$id]->customAttributeValue = $attribute->attributeValue;
 					}
 					$product_info->title = $new_title;
+
 					return $this->update_product_info($barcode, (array)$product_info);
 				}
 			}
+
 			return false;
 		}
 
@@ -192,9 +194,11 @@
 						$product_info->attributes[$id]->customAttributeValue = $attribute->attributeValue;
 					}
 					$product_info->description = $new_desc;
+
 					return $this->update_product_info($barcode, (array)$product_info);
 				}
 			}
+
 			return false;
 		}
 
@@ -207,9 +211,11 @@
 						$product_info->attributes[$id]->customAttributeValue = $attribute->attributeValue;
 					}
 					$product_info->brandId = $brand_id;
+
 					return $this->update_product_info($barcode, (array)$product_info);
 				}
 			}
+
 			return false;
 		}
 
@@ -222,40 +228,42 @@
 						$product_info->attributes[$id]->customAttributeValue = $attribute->attributeValue;
 					}
 					$product_info->images = $images;
+
 					return $this->update_product_info($barcode, (array)$product_info);
 				}
 			}
+
 			return false;
 		}
 
-		public function get_product_comment($barcode, $page = 0, $rating = null, $only_seller_reviews = false, $order_number = 1){
-
+		public function get_product_comment($barcode, $page = 1, $filter_rates = null, $only_seller_reviews = false, $cache = true){
 			if($barcode != null){
 				$product_info = $this->get_my_product($barcode);
 				if(isset($product_info->body->content[0])){
 					$product_content_id = $product_info->body->content[0]->productContentId ?? 0;
 
-					$headers = [
-						'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
-						'Accept-Language: en-US,en;q=0.5',
-						'Accept-Encoding: deflate, b, php, html, txt',
-						'Connection: keep-alive',
-						'Upgrade-Insecure-Requests: 1'
+					$url_params = [
+						"culture"                => "tr-TR",
+						"storefrontId"           => 1,
+						"RRsocialproofAbTesting" => "B",
+						"logged - in"            => false,
+						"isBuyer"                => $only_seller_reviews,
+						"channelId"              => 1,
+						"page"                   => ($page - 1),
 					];
 
-					$url_params = http_build_query([
-						'merchantId' => $this->supplierId,
-						'logged-in'  => false,
-						'isBuyer'    => false,
-						'contentId'  => $product_content_id,
+					$query = http_build_query($url_params);
 
-					]);
-					$url        = 'https://apigw.trendyol.com/discovery-web-socialgw-service/reviews/heiluna/urun-p-'.$product_content_id.'/yorumlar?'.$url_params;
-					$body       = $this->request()->get($url, $headers, false);
-					preg_match('/{(.*?)};/ius', $body->body->result->hydrateScript, $matches);
-					$json   = json_decode(rtrim($matches[0], ';'));
-					$result = json_encode(['result' => $json->ratingAndReviewResponse->ratingAndReview ?? []]);
-					return json_decode($result);
+					if($filter_rates != null){
+						foreach($filter_rates as $id => $rate){
+							$query .= '&rates='.$rate;
+						}
+					}
+
+					$url = 'https://apigw.trendyol.com/discovery-mweb-socialgw-service/api/product-review/reviews/'.$product_content_id.'?'.$query;
+					//$url  = 'https://apigw.trendyol.com/discovery-storefront-trproductgw-service/api/review-read/product-reviews/detailed?contentId=863442591&page=0&pageSize=20&tag=t%C3%BCm%C3%BC&order=DESC&orderBy=Score&channelId=1';
+					$body = $this->request()->get_chromium($url);
+					return $body;
 				}
 			}
 
