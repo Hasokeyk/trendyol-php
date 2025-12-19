@@ -261,7 +261,6 @@
 					}
 
 					$url = 'https://apigw.trendyol.com/discovery-mweb-socialgw-service/api/product-review/reviews/'.$product_content_id.'?'.$query;
-					//$url  = 'https://apigw.trendyol.com/discovery-storefront-trproductgw-service/api/review-read/product-reviews/detailed?contentId=863442591&page=0&pageSize=20&tag=t%C3%BCm%C3%BC&order=DESC&orderBy=Score&channelId=1';
 					$body = $this->request()->get_chromium($url);
 					return $body;
 				}
